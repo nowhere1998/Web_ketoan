@@ -3,238 +3,79 @@
         Layout = "~/Views/Shared/_Layout.cshtml";
     }
 
+<div class="sub-header">
+    <div class="container">
+        <h1>Tin tức</h1>
+        <ul class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="/"><i class="fal fa-home"></i></a>
+            </li>
+            <li class="breadcrumb-item active">Tin tức</li>
+        </ul>
+    </div>
+</div>
 <div class="container wrapper-content">
     <div class="row">
-        <div class="col-lg-3 order-1 order-lg-0">
-            <ul class="menu-left">
-                <li>
-                    <a href="#">Blog</a>
-                    <ul>
-                        <li><a href="tin-tuc.html"><i class="fal fa-angle-right"></i> Tin tức</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <ul class="menu-left mt-3">
-                <li>
-                    <a href="../dich-vu-ke-toan.html">Dịch vụ kế to&#225;n</a>
-                    <ul>
-                        <li><a href="../dich-vu-ke-toan-thue-tron-goi.html"><i class="fal fa-angle-right"></i> Dịch vụ kế to&#225;n thuế trọn g&#243;i</a></li>
-                        <li><a href="../kiem-tra-don-dep-lai-so-sach-ke-toan.html"><i class="fal fa-angle-right"></i> Kiểm tra, dọn dẹp lại sổ s&#225;ch kế to&#225;n</a></li>
-                        <li><a href="../dich-vu-quyet-toan-thue.html"><i class="fal fa-angle-right"></i> Dịch vụ quyết to&#225;n thuế</a></li>
-                        <li><a href="../tu-van-quan-ly-tai-chinh-ke-toan-doanh-nghiep.html"><i class="fal fa-angle-right"></i> Tư vấn quản l&#253; t&#224;i ch&#237;nh, kế to&#225;n Doanh nghiệp</a></li>
-                        <li><a href="../thanh-lap-doanh-nghiep.html"><i class="fal fa-angle-right"></i> Th&#224;nh lập doanh nghiệp</a></li>
-                        <li><a href="../thay-doi-dang-ky-kinh-doanh.html"><i class="fal fa-angle-right"></i> Thay đổi đăng k&#253; kinh doanh</a></li>
-                        <li><a href="../dich-vu-hoan-thien-bao-cao-tai-chinh.html"><i class="fal fa-angle-right"></i> Dịch vụ ho&#224;n thiện b&#225;o c&#225;o t&#224;i ch&#237;nh</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="../dao-tao-ke-toan.html">Đ&#224;o tạo kế to&#225;n</a>
-                    <ul>
-                        <li><a href="../khoa-hoc-ke-toan-tong-hop.html"><i class="fal fa-angle-right"></i> Kh&#243;a học kế to&#225;n tổng hợp</a></li>
-                        <li><a href="../khoa-hoc-ke-toan-thue-ngan-han.html"><i class="fal fa-angle-right"></i> Kh&#243;a học kế to&#225;n thuế ngắn hạn</a></li>
-                        <li><a href="../khoa-hoc-phan-mem-ke-toan-fast-misa.html"><i class="fal fa-angle-right"></i> Kh&#243;a học phần mềm kế to&#225;n Fast - Misa</a></li>
-                        <li><a href="../khoa-hoc-ke-toan-danh-cho-giam-doc.html"><i class="fal fa-angle-right"></i> Kh&#243;a học kế to&#225;n d&#224;nh cho Gi&#225;m Đốc</a></li>
-                        <li><a href="../khoa-hoc-ke-toan-cho-nguoi-moi-bat-dau.html"><i class="fal fa-angle-right"></i> Kh&#243;a học kế to&#225;n cho người mới bắt đầu</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <div class="module-name-left mb-3">Kết nối mạng xã hội</div>
-            <div class="embed-responsive embed-responsive-16by9">
-                <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fketoanthueqc&amp;tabs&amp;width=500&amp;height=130&amp;small_header=false&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=true&amp;appId" width="500" height="130" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+        @* list tin tức *@
+        <div class="col-lg-4">
+            <div class="card card-news">
+                <div class="card-img-top">
+                    <a href="/blog/ky-niem-10-nam-thanh-lap-ke-toan-thue-qc-sinh-nhat-10-tuoi.html"
+                       class="img-zoom-in">
+                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAMzMzAAAACH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS4zLWMwMTEgNjYuMTQ1NjYxLCAyMDEyLzAyLzA2LTE0OjU2OjI3ICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M2IChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo4NjdCQkRBNkYyOUUxMUVDOTQzQ0ExMTUyNkQ5MDVGNyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo4NjdCQkRBN0YyOUUxMUVDOTQzQ0ExMTUyNkQ5MDVGNyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjg2N0JCREE0RjI5RTExRUM5NDNDQTExNTI2RDkwNUY3IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjg2N0JCREE1RjI5RTExRUM5NDNDQTExNTI2RDkwNUY3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Af/+/fz7+vn49/b19PPy8fDv7u3s6+rp6Ofm5eTj4uHg397d3Nva2djX1tXU09LR0M/OzczLysnIx8bFxMPCwcC/vr28u7q5uLe2tbSzsrGwr66trKuqqainpqWko6KhoJ+enZybmpmYl5aVlJOSkZCPjo2Mi4qJiIeGhYSDgoGAf359fHt6eXh3dnV0c3JxcG9ubWxramloZ2ZlZGNiYWBfXl1cW1pZWFdWVVRTUlFQT05NTEtKSUhHRkVEQ0JBQD8+PTw7Ojk4NzY1NDMyMTAvLi0sKyopKCcmJSQjIiEgHx4dHBsaGRgXFhUUExIREA8ODQwLCgkIBwYFBAMCAQAALAAAAAABAAEAAAICRAEAOw=="
+                             data-src="/images/articles/2025/09/12/134021243176785815.jpg"
+                             class="img-fluid lazyload"
+                             width="348"
+                             alt="Kỷ Niệm 10 Năm Thành Lập Kế Toán Thuế QC - Sinh Nhật 10 Tuổi" />
+                    </a>
+                    <div class="post-date">
+                        12<br />
+                        Sep
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h2 class="height-truncate" data-line="2">
+                        <a href="/blog/ky-niem-10-nam-thanh-lap-ke-toan-thue-qc-sinh-nhat-10-tuoi.html">
+                            Kỷ Niệm 10 Năm Th&#224;nh Lập Kế To&#225;n Thuế QC - Sinh
+                            Nhật 10 Tuổi
+                        </a>
+                    </h2>
+                    <div class="sapo height-truncate" data-line="3">
+                        Ng&#224;y 08/09/2025 vừa qua, C&#244;ng ty TNHH Tư vấn Kế
+                        To&#225;n Thuế QC đ&#227; long trọng tổ chức lễ kỷ niệm 10 năm
+                        th&#224;nh lập (2015 – 2025). Buổi tiệc diễn ra trong kh&#244;ng
+                        kh&#237; trang trọng, ấm &#225;p nhưng cũng đầy tự h&#224;o
+                        v&#224; kh&#237; thế. Đ&#226;y kh&#244;ng chỉ l&#224; dịp để
+                        nh&#236;n lại chặng đường đ&#227; qua m&#224; c&#242;n l&#224;
+                        dấu mốc quan trọng mở ra h&#224;nh tr&#236;nh mới đầy hứa hẹn
+                        của Kế To&#225;n Thuế QC.
+                    </div>
+                </div>
             </div>
-            <div class="g-ytsubscribe" data-channelid="UCyEAEnxd-M_UqDmkZtZfSQg" data-layout="full" data-count="default"></div>
         </div>
-        <div class="col-lg-9 border-left border-left-m-0 order-0 order-lg-1">
-            <h1 class="post-title">5 TH&#211;I QUEN NGUY HIỂM N&#202;N TỪ BỎ NGAY - KẾ TO&#193;N  THUẾ QC</h1>
-            <p class="small text-muted"><i class="fal fa-calendar"></i> 29/12/2021</p>
-            <div class="sapo-detail">
-                Ai cũng mong cầu bản th&#226;n c&#243; một cuộc sống gi&#224;u sang, hạnh ph&#250;c. Người l&#224;m kh&#244;ng n&#234;n chuyện thường kh&#244;ng muốn nghĩ nhiều, cứ muốn mọi thứ đơn giản ổn định. C&#242;n người c&#243; ch&#237; lớn trước khi l&#224;m việc đều đặt mục ti&#234;u vượt mức, suy x&#233;t chu đ&#225;o, h&#224;nh động c&#243; kế hoạch. Cuộc sống n&#234;n biết khi n&#224;o cần &quot;cầm l&#234;n&quot; v&#224; khi n&#224;o n&#234;n &quot;từ bỏ&quot;. Từ bỏ ngay 5 th&#243;i quen nguy hiểm dưới đ&#226;y để cuộc sống của mỗi ch&#250;ng ta được tốt đẹp hơn.
-            </div>
-            <div class="body-content">
-                <h2>𝟓 𝐓𝐇𝐎́𝐈 𝐐𝐔𝐄𝐍 𝐍𝐆𝐔𝐘 𝐇𝐈𝐄̂̉𝐌 𝐍𝐄̂𝐍 𝐓𝐔̛̀ 𝐁𝐎̉ 𝐍𝐆𝐀𝐘!</h2>
-
-                <p><img alt="✨" height="16" referrerpolicy="origin-when-cross-origin" src="/user/assets/static.xx.fbcdn.net/images/emoji.php/v9/tf4/1/16/2728.png" width="16" /> <img alt="✨" height="16" referrerpolicy="origin-when-cross-origin" src="/user/assets/static.xx.fbcdn.net/images/emoji.php/v9/tf4/1/16/2728.png" width="16" /> <img alt="✨" height="16" referrerpolicy="origin-when-cross-origin" src="/user/assets/static.xx.fbcdn.net/images/emoji.php/v9/tf4/1/16/2728.png" width="16" /> <img alt="✨" height="16" referrerpolicy="origin-when-cross-origin" src="/user/assets/static.xx.fbcdn.net/images/emoji.php/v9/tf4/1/16/2728.png" width="16" /> <img alt="✨" height="16" referrerpolicy="origin-when-cross-origin" src="/user/assets/static.xx.fbcdn.net/images/emoji.php/v9/tf4/1/16/2728.png" width="16" /> <img alt="✨" height="16" referrerpolicy="origin-when-cross-origin" src="/user/assets/static.xx.fbcdn.net/images/emoji.php/v9/tf4/1/16/2728.png" width="16" /></p>
-
-                <h2>1. 𝑺𝒐̛̣ 𝒉𝒂̃𝒊 𝒏𝒉𝒖̛̃𝒏𝒈 𝒕𝒉𝒖̛́ 𝒌𝒉𝒐̂𝒏𝒈 𝒕𝒆̂𝒏 <img alt="💥" height="16" referrerpolicy="origin-when-cross-origin" src="/user/assets/static.xx.fbcdn.net/images/emoji.php/v9/t40/1/16/1f4a5.png" width="16" /></h2>
-
-                <p>Kiểu người n&agrave;y lu&ocirc;n bị bao v&acirc;y bởi những nỗi sợ h&atilde;i kh&aacute;c nhau, chẳng hạn như sợ bị từ chối, sợ bị chia l&igrave;a, mất m&aacute;t, sợ bị l&agrave;m nhục hoặc thậm ch&iacute; l&agrave; sợ cả sự tuyệt chủng. Những nỗi sợ n&agrave;y lu&ocirc;n xuất hiện trong t&acirc;m tr&iacute; họ, ngăn cản họ bước những bước vững v&agrave;ng đến giấc mơ của m&igrave;nh, ngăn cản sự mạo hiểm v&agrave; họ lu&ocirc;n h&agrave;i l&ograve;ng với bầu kh&ocirc;ng kh&iacute; dễ chịu của ch&iacute;nh m&igrave;nh.</p>
-
-                <h2>2. 𝑵𝒈𝒉𝒊𝒆̣̂𝒏 𝒏𝒐̂̃𝒊 đ𝒂𝒖 <img alt="💥" height="16" referrerpolicy="origin-when-cross-origin" src="/user/assets/static.xx.fbcdn.net/images/emoji.php/v9/t40/1/16/1f4a5.png" width="16" /></h2>
-
-                <p>Kiểu người nghiện nỗi đau sẽ kh&ocirc;ng nghe theo tiếng n&oacute;i của con tim m&agrave; chỉ nghe theo &yacute; thức nội t&acirc;m. Họ sống chỉ để thực hiện những tr&aacute;ch nhiệm x&atilde; hội nhất định chứ kh&ocirc;ng hề cảm thấy vui vẻ g&igrave;. Mọi thứ xung quanh họ, bao gồm cả cảm x&uacute;c con người đều l&agrave; v&ocirc; &iacute;ch v&agrave; giả dối. Những giấc mơ của bản th&acirc;n kh&ocirc;ng c&oacute; &yacute; nghĩa g&igrave; v&agrave; ch&uacute;ng chỉ đơn thuần l&agrave; những h&igrave;nh ảnh tưởng tượng m&agrave; th&ocirc;i.</p>
-
-                <h2>3. 𝑻𝒓𝒊̀ 𝒉𝒐𝒂̃𝒏 <img alt="💥" height="16" referrerpolicy="origin-when-cross-origin" src="/user/assets/static.xx.fbcdn.net/images/emoji.php/v9/t40/1/16/1f4a5.png" width="16" /></h2>
-
-                <p>Kiểu người n&agrave;y lu&ocirc;n chờ đợi những thời điểm thuận lợi để thực hiện ước mơ của bản th&acirc;n. Họ kh&ocirc;ng bao giờ chắc chắn về thời điểm hiện tại v&agrave; tr&igrave; ho&atilde;n ước mơ, mục ti&ecirc;u của m&igrave;nh cho tương lai. Họ l&agrave; người lu&ocirc;n chờ đợi để gặp đ&uacute;ng cơ hội chứ kh&ocirc;ng tự m&igrave;nh tạo ra n&oacute;.</p>
-
-                <h2>4. 𝑺𝒐̂́𝒏𝒈 𝒗𝒐̛́𝒊 𝒄𝒂́𝒊 𝒕𝒐̂𝒊 <img alt="💥" height="16" referrerpolicy="origin-when-cross-origin" src="/user/assets/static.xx.fbcdn.net/images/emoji.php/v9/t40/1/16/1f4a5.png" width="16" /></h2>
-
-                <p>Kiểu người n&agrave;y đang sống với sự ngộ nhận về ch&iacute;nh m&igrave;nh. Họ kết nối với c&aacute;c vật sở hữu của m&igrave;nh, d&ugrave; hữu h&igrave;nh hay v&ocirc; h&igrave;nh, như thể ch&uacute;ng l&agrave; ch&iacute;nh họ vậy. Những vật sở hữu n&agrave;y c&oacute; thể l&agrave; chiếc điện thoại th&ocirc;ng minh m&agrave; họ mua gần đ&acirc;y nhất, bộ sưu tập quần &aacute;o v&agrave; phụ kiện đi k&egrave;m đắt tiền, mối quan hệ với những người m&agrave; họ thương y&ecirc;u... Họ cảm thấy v&ocirc; vọng ngay cả trong &yacute; nghĩ về việc mất đi vật sở hữu n&agrave;y, v&igrave; nếu kh&ocirc;ng c&oacute; ch&uacute;ng họ sẽ kh&ocirc;ng thể l&agrave; g&igrave; - ch&iacute;nh lối suy nghĩ đ&oacute; đ&atilde; đưa họ rời xa những ước mơ trong đời.</p>
-
-                <h2>5. 𝑺𝒐̂́𝒏𝒈 𝒗𝒐̛́𝒊 𝒒𝒖𝒂́ 𝒌𝒉𝒖̛́ <img alt="💥" height="16" referrerpolicy="origin-when-cross-origin" src="/user/assets/static.xx.fbcdn.net/images/emoji.php/v9/t40/1/16/1f4a5.png" width="16" /></h2>
-
-                <p>Kiểu người n&agrave;y lu&ocirc;n sống với qu&aacute; khứ. Họ kh&ocirc;ng bao giờ sống với khoảnh khắc hiện tại. Sự lơ đ&atilde;ng l&agrave; đặc điểm t&iacute;nh c&aacute;ch nổi trội nhất trong họ. Họ lu&ocirc;n suy nghĩ về những điều đ&atilde; xảy ra trước đ&acirc;y, c&aacute;ch họ từng cư xử hoặc người kh&aacute;c nghĩ g&igrave; về những điều họ n&oacute;i.</p>
-
-                <p><a href="https://www.facebook.com/hashtag/gocthugian?__eep__=6&amp;__cft__[0]=AZVpA5fEg142qhlfYANnfT5gWAUbJHQXwvewoOdLkS9MU-xzkx2vSga2zI6CH4jvtoT8weAZOLkMmpZUtil8aFONbHmB9r3AJEfuQNXZ8YTd_qBRuhFnBd23Y1t1OuRoG0uiP-LoxI8AGwFlS59X7rTovhgxEn6zR1GgcRN3nH1A1A&amp;__tn__=*NK-R" role="link" tabindex="0">#gocthugian</a> <a href="https://www.facebook.com/hashtag/ketoanthueqc?__eep__=6&amp;__cft__[0]=AZVpA5fEg142qhlfYANnfT5gWAUbJHQXwvewoOdLkS9MU-xzkx2vSga2zI6CH4jvtoT8weAZOLkMmpZUtil8aFONbHmB9r3AJEfuQNXZ8YTd_qBRuhFnBd23Y1t1OuRoG0uiP-LoxI8AGwFlS59X7rTovhgxEn6zR1GgcRN3nH1A1A&amp;__tn__=*NK-R" role="link" tabindex="0">#ketoanthueqc</a> <a href="https://www.facebook.com/hashtag/phuongketoan?__eep__=6&amp;__cft__[0]=AZVpA5fEg142qhlfYANnfT5gWAUbJHQXwvewoOdLkS9MU-xzkx2vSga2zI6CH4jvtoT8weAZOLkMmpZUtil8aFONbHmB9r3AJEfuQNXZ8YTd_qBRuhFnBd23Y1t1OuRoG0uiP-LoxI8AGwFlS59X7rTovhgxEn6zR1GgcRN3nH1A1A&amp;__tn__=*NK-R" role="link" tabindex="0">#phuongketoan</a></p>
-
-                <p>Nguồn:st</p>
-
-                <p style="text-align: center;"><img alt="" src="/user/assets/images/upload/images/5-thoi-quen-nguy-hiem.png" style="width: 800px; height: 671px;" /></p>
-
-                <p style="text-align: center;"><em>5 Th&oacute;i quen nguy hiểm n&ecirc;n từ bỏ ngay!</em></p>
-
-                <p style="text-align: center;">&nbsp;</p>
-
-                <p>===========================</p>
-
-                <h3>C&Ocirc;NG TY TNHH TƯ VẤN KẾ TO&Aacute;N THUẾ QC</h3>
-
-                <p><img alt="🏩" height="16" referrerpolicy="origin-when-cross-origin" src="/user/assets/static.xx.fbcdn.net/images/emoji.php/v9/t7f/1/16/1f3e9.png" width="16" />&nbsp;Địa chỉ trụ sở ch&iacute;nh: Số 55, ng&otilde; 207/103, phố Nhang, phường Xu&acirc;n Đỉnh, Q. Bắc Từ Li&ecirc;m, H&agrave; Nội.</p>
-
-                <p><img alt="🏪" height="16" referrerpolicy="origin-when-cross-origin" src="/user/assets/static.xx.fbcdn.net/images/emoji.php/v9/ta7/1/16/1f3ea.png" width="16" />&nbsp;Văn ph&ograve;ng Long Bi&ecirc;n: T&ograve;a nh&agrave; Sunrise Building IIIA, khu đ&ocirc; thị S&agrave;i Đồng, P. Ph&uacute;c Đồng, Q. Long Bi&ecirc;n, H&agrave; Nội.</p>
-
-                <p><img alt="🏪" height="16" referrerpolicy="origin-when-cross-origin" src="/user/assets/static.xx.fbcdn.net/images/emoji.php/v9/ta7/1/16/1f3ea.png" width="16" />&nbsp;Văn ph&ograve;ng Thanh Tr&igrave;: Ph&ograve;ng 0909-CT03, T&ograve;a nh&agrave; IEC Residence, Tứ Hiệp, Thanh Tr&igrave;, H&agrave; Nội.</p>
-
-                <p><img alt="☎️" height="16" referrerpolicy="origin-when-cross-origin" src="/user/assets/static.xx.fbcdn.net/images/emoji.php/v9/t22/1/16/260e.png" width="16" />&nbsp;Hotline TƯ VẤN v&agrave; HỖ TRỢ MIỄN PH&Iacute;: 0976 428 786 (MS.Phương)</p>
-
-                <p><img alt="📬" height="16" referrerpolicy="origin-when-cross-origin" src="/user/assets/static.xx.fbcdn.net/images/emoji.php/v9/tea/1/16/1f4ec.png" width="16" />&nbsp;Email: ketoanthueqc@gmail.com</p>
-
-                <p><img alt="🌎" height="16" referrerpolicy="origin-when-cross-origin" src="/user/assets/static.xx.fbcdn.net/images/emoji.php/v9/tc0/1/16/1f30e.png" width="16" />Website:&nbsp;<a href="../index0007.html?fbclid=IwAR2_fgZtrMXDuGS6Q6wkAt9af4orTd_E1Rkq5bFE49SQz665PIg5Rn2B1bE" rel="nofollow noopener" role="link" tabindex="0" target="_blank">http://ketoanthueqc.com/</a></p>
-
-                <p><img alt="👉" height="16" referrerpolicy="origin-when-cross-origin" src="/user/assets/static.xx.fbcdn.net/images/emoji.php/v9/t51/1/16/1f449.png" width="16" />Fanpage:&nbsp;<a href="https://www.facebook.com/ketoanthueqc/?__cft__[0]=AZVLVYOtYeek-SdBmjbbz-mvnFz1tC0J1GNRhP9EXxyW4WI21Pk7UinRGj68TXXbaIUnSrcoGZjwCQe2dw0-9ZmYmDz2wqGoYohC-6GdujMoeO0WXEM4HF2vJioHprDrkfV-BZ6pDDYuticHTXnojHhd3OjkL_-ZFfFJ1sHZyxSezg&amp;__tn__=kK-R" role="link" tabindex="0">https://www.facebook.com/ketoanthueqc</a></p>
-
-                <p><img alt="👉" height="16" referrerpolicy="origin-when-cross-origin" src="/user/assets/static.xx.fbcdn.net/images/emoji.php/v9/t51/1/16/1f449.png" width="16" />Nh&oacute;m Tư Vấn Kế to&aacute;n Thuế QC-Quản trị nội bộ:&nbsp;<a href="https://www.facebook.com/groups/tuvanketoanthuequantrinoibo/?__cft__[0]=AZVLVYOtYeek-SdBmjbbz-mvnFz1tC0J1GNRhP9EXxyW4WI21Pk7UinRGj68TXXbaIUnSrcoGZjwCQe2dw0-9ZmYmDz2wqGoYohC-6GdujMoeO0WXEM4HF2vJioHprDrkfV-BZ6pDDYuticHTXnojHhd3OjkL_-ZFfFJ1sHZyxSezg&amp;__tn__=-UK-R" role="link" tabindex="0">https://www.facebook.com/groups/tuvanketoanthuequantrinoibo</a></p>
-
-                <p><img alt="👉" height="16" referrerpolicy="origin-when-cross-origin" src="/user/assets/static.xx.fbcdn.net/images/emoji.php/v9/t51/1/16/1f449.png" width="16" />Youtube:&nbsp;<a href="https://www.youtube.com/channel/UCyEAEnxd-M_UqDmkZtZfSQg?fbclid=IwAR2NbS_ntURtbYFQJx-SEukaslkdyiEawOnFQ3VeIKMmtncvbrNtY3gGF4E" rel="nofollow noopener" role="link" tabindex="0" target="_blank">https://www.youtube.com/channel/UCyEAEnxd-M_UqDmkZtZfSQg</a></p>
-
-                <p><img alt="👉" height="16" referrerpolicy="origin-when-cross-origin" src="/user/assets/static.xx.fbcdn.net/images/emoji.php/v9/t51/1/16/1f449.png" width="16" />TikTok:&nbsp;<a href="" rel="nofollow noopener" role="link" tabindex="0" target="_blank"></a></p>
-
-                <p><img alt="👉" height="16" referrerpolicy="origin-when-cross-origin" src="/user/assets/static.xx.fbcdn.net/images/emoji.php/v9/t51/1/16/1f449.png" width="16" />Zalo nh&oacute;m Kế to&aacute;n thuế QC:&nbsp;<a href="https://oa.zalo.me/manage/dashboard?fbclid=IwAR3U4m-xENUWPNdOAUB8J8_nNcAHX6GW1PGWe7heUlUQrRnUlb9a673afws" rel="nofollow noopener" role="link" tabindex="0" target="_blank">https://oa.zalo.me/manage/dashboard</a></p>
-
-                <p><img alt="👉" height="16" referrerpolicy="origin-when-cross-origin" src="/user/assets/static.xx.fbcdn.net/images/emoji.php/v9/t51/1/16/1f449.png" width="16" />Twitter:&nbsp;<a href="https://twitter.com/ketoanthueqc?fbclid=IwAR3U4m-xENUWPNdOAUB8J8_nNcAHX6GW1PGWe7heUlUQrRnUlb9a673afws" rel="nofollow noopener" role="link" tabindex="0" target="_blank">https://twitter.com/ketoanthueqc</a></p>
-
-            </div>
-            <img src="/user/assets/Content/images/thich_img.jpg" alt="Thích" class="img-fluid" />
-            <hr />
-            <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fketoanthueqc&amp;width=150&amp;layout=button_count&amp;action=like&amp;size=small&amp;share=true&amp;height=46&amp;appId" width="150" height="46" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-        </div>
+        @* list tin tức *@
     </div>
-    <hr />
-    <h3 class="section-name">Bài viết khác</h3>
-    <div class="row">
-        <div class="col-lg-4">
-            <div class="card card-news">
-                <div class="card-img-top">
-                    <a href="qc-christmas-vibes-2025.html" class="img-zoom-in">
-                        <img src="/user/assets/images/articles/2025/12/24/134110215649785608.png" class="img-fluid" alt="QC CHRISTMAS VIBES 2025 " />
-                    </a>
-                    <div class="post-date">
-                        24<br />
-                        Dec
-                    </div>
-                </div>
-                <div class="card-body">
-                    <h2 class="height-truncate" data-line="2"><a href="qc-christmas-vibes-2025.html">QC CHRISTMAS VIBES 2025 </a></h2>
-                    <div class="sapo height-truncate" data-line="3">
-                        &#127876;&#127916; QC CHRISTMAS VIBES 2025 – Gi&#225;ng Sinh Rực Rỡ - S&#225;ng Tạo Hết Cỡ
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="card card-news">
-                <div class="card-img-top">
-                    <a href="ke-toan-thue-qc-10-nam-dong-hanh-cung-doanh-nghiep.html" class="img-zoom-in">
-                        <img src="/user/assets/images/articles/2025/09/12/134021261824586057.jpg" class="img-fluid" alt="KẾ TO&#193;N THUẾ QC – 10 NĂM ĐỒNG H&#192;NH C&#217;NG DOANH NGHIỆP" />
-                    </a>
-                    <div class="post-date">
-                        12<br />
-                        Sep
-                    </div>
-                </div>
-                <div class="card-body">
-                    <h2 class="height-truncate" data-line="2"><a href="ke-toan-thue-qc-10-nam-dong-hanh-cung-doanh-nghiep.html">KẾ TO&#193;N THUẾ QC – 10 NĂM ĐỒNG H&#192;NH C&#217;NG DOANH NGHIỆP</a></h2>
-                    <div class="sapo height-truncate" data-line="3">
-                        Buổi tiệc kỷ niệm 10 năm th&#224;nh lập C&#244;ng ty Kế To&#225;n Thuế QC đ&#227; kh&#233;p lại trong kh&#244;ng kh&#237; ấm &#225;p, &#253; nghĩa v&#224; chan chứa t&#236;nh cảm. Đ&#226;y kh&#244;ng chỉ l&#224; một cột mốc đ&#225;ng nhớ m&#224; c&#242;n l&#224; lời nhắc nhở để Kế To&#225;n Thuế QC tiếp tục nỗ lực hơn nữa tr&#234;n chặng đường ph&#237;a trước.
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="card card-news">
-                <div class="card-img-top">
-                    <a href="sinh-nhat-cbnv-thang-9-khi-niem-vui-hoi-tu-trong-dem-tiec-10-nam.html" class="img-zoom-in">
-                        <img src="/user/assets/images/articles/2025/09/12/134021246053105437.jpg" class="img-fluid" alt="SINH NHẬT CBNV TH&#193;NG 9 – KHI NIỀM VUI HỘI TỤ TRONG Đ&#202;M TIỆC 10 NĂM " />
-                    </a>
-                    <div class="post-date">
-                        12<br />
-                        Sep
-                    </div>
-                </div>
-                <div class="card-body">
-                    <h2 class="height-truncate" data-line="2"><a href="sinh-nhat-cbnv-thang-9-khi-niem-vui-hoi-tu-trong-dem-tiec-10-nam.html">SINH NHẬT CBNV TH&#193;NG 9 – KHI NIỀM VUI HỘI TỤ TRONG Đ&#202;M TIỆC 10 NĂM </a></h2>
-                    <div class="sapo height-truncate" data-line="3">
-                        Đ&#234;m kỷ niệm 10 năm th&#224;nh lập Kế To&#225;n Thuế QC đ&#227; để lại thật nhiều cảm x&#250;c – kh&#244;ng chỉ bởi những khoảnh khắc nh&#236;n lại h&#224;nh tr&#236;nh một thập kỷ, m&#224; c&#242;n bởi niềm vui được c&#249;ng nhau ch&#250;c mừng sinh nhật c&#225;c CBNV c&#243; ng&#224;y sinh trong th&#225;ng 9.
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="card card-news">
-                <div class="card-img-top">
-                    <a href="ky-niem-10-nam-thanh-lap-ke-toan-thue-qc-sinh-nhat-10-tuoi.html" class="img-zoom-in">
-                        <img src="/user/assets/images/articles/2025/09/12/134021243176785815.jpg" class="img-fluid" alt="Kỷ Niệm 10 Năm Th&#224;nh Lập Kế To&#225;n Thuế QC - Sinh Nhật 10 Tuổi" />
-                    </a>
-                    <div class="post-date">
-                        12<br />
-                        Sep
-                    </div>
-                </div>
-                <div class="card-body">
-                    <h2 class="height-truncate" data-line="2"><a href="ky-niem-10-nam-thanh-lap-ke-toan-thue-qc-sinh-nhat-10-tuoi.html">Kỷ Niệm 10 Năm Th&#224;nh Lập Kế To&#225;n Thuế QC - Sinh Nhật 10 Tuổi</a></h2>
-                    <div class="sapo height-truncate" data-line="3">
-                        Ng&#224;y 08/09/2025 vừa qua, C&#244;ng ty TNHH Tư vấn Kế To&#225;n Thuế QC đ&#227; long trọng tổ chức lễ kỷ niệm 10 năm th&#224;nh lập (2015 – 2025). Buổi tiệc diễn ra trong kh&#244;ng kh&#237; trang trọng, ấm &#225;p nhưng cũng đầy tự h&#224;o v&#224; kh&#237; thế. Đ&#226;y kh&#244;ng chỉ l&#224; dịp để nh&#236;n lại chặng đường đ&#227; qua m&#224; c&#242;n l&#224; dấu mốc quan trọng mở ra h&#224;nh tr&#236;nh mới đầy hứa hẹn của Kế To&#225;n Thuế QC.
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="card card-news">
-                <div class="card-img-top">
-                    <a href="ke-toan-thue-qc-chao-mung-ky-niem-80-nam-quoc-khanh-nuoc-chxhcn-viet-nam.html" class="img-zoom-in">
-                        <img src="/user/assets/images/articles/2025/09/05/134015177078019748.jpg" class="img-fluid" alt="Kế To&#225;n Thuế QC – Ch&#224;o mừng kỷ niệm 80 năm Quốc kh&#225;nh nước CHXHCN Việt Nam " />
-                    </a>
-                    <div class="post-date">
-                        05<br />
-                        Sep
-                    </div>
-                </div>
-                <div class="card-body">
-                    <h2 class="height-truncate" data-line="2"><a href="ke-toan-thue-qc-chao-mung-ky-niem-80-nam-quoc-khanh-nuoc-chxhcn-viet-nam.html">Kế To&#225;n Thuế QC – Ch&#224;o mừng kỷ niệm 80 năm Quốc kh&#225;nh nước CHXHCN Việt Nam </a></h2>
-                    <div class="sapo height-truncate" data-line="3">
-                        H&#242;a chung kh&#244;ng kh&#237; tự h&#224;o ấy, C&#244;ng ty TNHH Tư Vấn Kế To&#225;n Thuế QC đ&#227; tổ chức nhiều hoạt động kỷ niệm tại c&#225;c văn ph&#242;ng: Mai Động, Ho&#224;ng Mai, Gia L&#226;m, Ph&#250;c Lợi, Ho&#224;ng Liệt, Đống Đa v&#224; Đ&#224; Nẵng. Những sắc cờ đỏ thắm tung bay, những nụ cười rạng rỡ v&#224; tinh thần đo&#224;n kết đ&#227; tạo n&#234;n một bầu kh&#244;ng kh&#237; s&#244;i nổi, tr&#224;n đầy niềm tin v&#224; hy vọng
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="card card-news">
-                <div class="card-img-top">
-                    <a href="quoc-hoi-thong-qua-luat-thue-tndn-sua-doi-nhieu-uu-dai-cho-doanh-nghiep.html" class="img-zoom-in">
-                        <img src="/user/assets/images/articles/2025/06/19/133947744883331712.png" class="img-fluid" alt="Quốc hội th&#244;ng qua Luật Thuế TNDN sửa đổi, nhiều ưu đ&#227;i cho doanh nghiệp" />
-                    </a>
-                    <div class="post-date">
-                        19<br />
-                        Jun
-                    </div>
-                </div>
-                <div class="card-body">
-                    <h2 class="height-truncate" data-line="2"><a href="quoc-hoi-thong-qua-luat-thue-tndn-sua-doi-nhieu-uu-dai-cho-doanh-nghiep.html">Quốc hội th&#244;ng qua Luật Thuế TNDN sửa đổi, nhiều ưu đ&#227;i cho doanh nghiệp</a></h2>
-                    <div class="sapo height-truncate" data-line="3">
-                        Luật Thuế thu nhập doanh nghiệp (sửa đổi) được Quốc hội th&#244;ng qua ng&#224;y 14/06/2025 c&#243; những điểm mới n&#224;o đ&#225;ng ch&#250; &#253;?
-                    </div>
-                </div>
-            </div>
+    <div class="text-center">
+        <div class="pagination-container">
+            <ul class="pagination">
+                <li class="active"><a>1</a></li>
+                <li><a href="/blog/tin-tuc?page=2">2</a></li>
+                <li><a href="/blog/tin-tuc?page=3">3</a></li>
+                <li><a href="/blog/tin-tuc?page=4">4</a></li>
+                <li><a href="/blog/tin-tuc?page=5">5</a></li>
+                <li><a href="/blog/tin-tuc?page=6">6</a></li>
+                <li><a href="/blog/tin-tuc?page=7">7</a></li>
+                <li><a href="/blog/tin-tuc?page=8">8</a></li>
+                <li><a href="/blog/tin-tuc?page=9">9</a></li>
+                <li><a href="/blog/tin-tuc?page=10">10</a></li>
+                <li class="disabled PagedList-ellipses"><a>&#8230;</a></li>
+                <li class="PagedList-skipToNext">
+                    <a href="/blog/tin-tuc?page=2" rel="next">»</a>
+                </li>
+                <li class="PagedList-skipToLast">
+                    <a href="/blog/tin-tuc?page=12">»»</a>
+                </li>
+            </ul>
         </div>
     </div>
 </div>
