@@ -119,14 +119,14 @@ namespace MyShop.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, User user, string? CurrentPassword,string? NewPassword)
+        public async Task<IActionResult> Edit(int id, User user, string? CurrentPassword, string? NewPassword)
         {
             if (id != user.Id)
             {
                 return NotFound();
             }
             user.Level = Level + user.Level;
-            user    .Level = Level + "00000";
+            user.Level = Level + "00000";
             Level = "";
             if (ModelState.IsValid)
             {
@@ -206,6 +206,72 @@ namespace MyShop.Areas.Admin.Controllers
 
             return RedirectToAction("Index");
         }
+        [HttpGet]
+        public IActionResult ChangePassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult ChangePassword(
+            string currentPassword,
+            string newPassword,
+            string confirmPassword)
+        {
+            // 👉 Lấy UserId từ Claims
+            var userIdClaim = User.FindFirstValue("UserId");
+            if (string.IsNullOrEmpty(userIdClaim))
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+            int userId = int.Parse(userIdClaim);
+            var user = _context.Users.FirstOrDefault(x => x.Id == userId);
+
+            if (user == null)
+            {
+                ViewBag.ErrorMessage = "Không tìm thấy người dùng.";
+                return View();
+            }
+
+            // 👉 Kiểm tra mật khẩu hiện tại
+            var currentPasswordMd5 = Cipher.GenerateMD5(currentPassword);
+            if (currentPasswordMd5 != user.Password)
+            {
+                ViewBag.ErrorMessage = "Mật khẩu hiện tại không đúng.";
+                return View();
+            }
+
+            // 👉 Validate mật khẩu mới
+            if (string.IsNullOrWhiteSpace(newPassword) || newPassword.Length < 6)
+            {
+                ViewBag.ErrorMessage = "Mật khẩu mới phải có ít nhất 6 ký tự.";
+                return View();
+            }
+
+            if (newPassword != confirmPassword)
+            {
+                ViewBag.ErrorMessage = "Mật khẩu mới và xác nhận không khớp.";
+                return View();
+            }
+
+            // ❌ KHÔNG ĐƯỢC TRÙNG MẬT KHẨU CŨ
+            var newPasswordMd5 = Cipher.GenerateMD5(newPassword);
+            if (newPasswordMd5 == user.Password)
+            {
+                ViewBag.ErrorMessage = "Mật khẩu mới không được trùng với mật khẩu cũ.";
+                return View();
+            }
+
+            // ✅ Cập nhật mật khẩu mới
+            user.Password = newPasswordMd5;
+            _context.SaveChanges();
+
+            ViewBag.SuccessMessage = "Đổi mật khẩu thành công.";
+            return View();
+        }
+
 
         private bool UserExists(long id)
         {

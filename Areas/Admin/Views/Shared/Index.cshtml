@@ -122,7 +122,7 @@ Layout = null;
                         <a href="#" class="d-block" style="text-transform: uppercase;">
                             @if (User.Identity != null && User.Identity.IsAuthenticated)
                             {
-                                <a href="#" class="d-block text-uppercase">
+                                <a asp-action="ChangePassword" asp-controller="users" class="d-block text-uppercase">
                                     @User.FindFirst("FullName")?.Value
                                 </a>
                             }
