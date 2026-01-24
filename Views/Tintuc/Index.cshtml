@@ -1,22 +1,46 @@
-﻿    @{
-        ViewData["Title"] = "Tin tức";
-        Layout = "~/Views/Shared/_Layout.cshtml";
-    }
+﻿@{
+    ViewData["Title"] = "Tin tức";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var path = Context.Request.Path;
+}
 
 <div class="sub-header">
     <div class="container">
+        @if(path == "tin-tuc")
+        {
+            
+        }else if(path == "thu-vien/hinh-anh")
+        {
+            
+        }else if(path == "thu-vien/videos")
+        {
+            
+        }
         <h1>Tin tức</h1>
         <ul class="breadcrumb">
             <li class="breadcrumb-item">
                 <a href="/"><i class="fal fa-home"></i></a>
             </li>
-            <li class="breadcrumb-item active">Tin tức</li>
+            @if (path == "tin-tuc")
+            {
+                <li class="breadcrumb-item active">Tin tức</li>
+            }
+            else if (path == "thu-vien/hinh-anh")
+            {
+                <li class="breadcrumb-item active">Thư viện/Hình ảnh</li>
+            }
+            else if (path == "thu-vien/videos")
+            {
+                <li class="breadcrumb-item active">Thư viện/Videos</li>
+            }
+            
         </ul>
     </div>
 </div>
 <div class="container wrapper-content">
     <div class="row">
         @* list tin tức *@
+
         <div class="col-lg-4">
             <div class="card card-news">
                 <div class="card-img-top">
