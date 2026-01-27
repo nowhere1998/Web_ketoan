@@ -96,43 +96,7 @@ namespace MyShop.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Library data)
         {
-            data.Active ??= 0;
-
-            var files = HttpContext.Request.Form.Files;
-            if (files.Count == 0)
-            {
-                ModelState.AddModelError("", "Vui lòng chọn hình ảnh");
-                return View(data);
-            }
-
-            // Check GroupLibrary tồn tại
-            if (!_context.GroupLibraries.Any(g => g.Id == data.GroupLibraryId))
-            {
-                ModelState.AddModelError("GroupLibraryId", "Nhóm thư viện không tồn tại");
-                return View(data);
-            }
-
-            // Check trùng tên
-            if (_context.Libraries.Any(l => l.Name == data.Name))
-            {
-                ModelState.AddModelError("", "Tên thư viện đã tồn tại");
-                return View(data);
-            }
-
-            // Upload ảnh
-            var file = files[0];
-            var fileName = Path.GetFileName(file.FileName);
-            var path = Path.Combine(
-                Directory.GetCurrentDirectory(),
-                "wwwroot/images/image",
-                fileName);
-
-            using (var stream = new FileStream(path, FileMode.Create))
-            {
-                file.CopyTo(stream);
-            }
-
-            data.Image = fileName;
+            data.Active ??= 0;         
 
             // Giá trị mặc định
             data.Tag = "";
@@ -140,7 +104,7 @@ namespace MyShop.Areas.Admin.Controllers
             data.File = "";
             data.MemberId = 0;
             data.Lang = "";
-
+            data.Priority = 0;
             _context.Libraries.Add(data);
             _context.SaveChanges();
 
@@ -175,23 +139,7 @@ namespace MyShop.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var files = HttpContext.Request.Form.Files;
-            if (files.Count > 0 && files[0].Length > 0)
-            {
-                var file = files[0];
-                var fileName = Path.GetFileName(file.FileName);
-                var path = Path.Combine(
-                    Directory.GetCurrentDirectory(),
-                    "wwwroot/images/image",
-                    fileName);
-
-                using (var stream = new FileStream(path, FileMode.Create))
-                {
-                    file.CopyTo(stream);
-                }
-
-                dbLibrary.Image = fileName;
-            }
+            
 
             // Update field
             dbLibrary.Name = data.Name;
@@ -202,7 +150,7 @@ namespace MyShop.Areas.Admin.Controllers
             dbLibrary.File = "";
             dbLibrary.MemberId = 0;
             dbLibrary.Lang = "";
-
+            dbLibrary.Priority = 0;
             _context.SaveChanges();
             return RedirectToAction(nameof(Index));
         }
