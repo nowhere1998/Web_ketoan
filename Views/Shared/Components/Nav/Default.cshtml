@@ -2,10 +2,10 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8">
-                <i class="fal fa-map-marker"></i> Ô số 5A, Tầng 1, Tòa Sunrise Building IIIB, KĐT Sài Đồng, P. Phúc Lợi, Hà Nội
+                <i class="fal fa-map-marker"></i> @ViewBag.Config.SocialLink5
             </div>
             <div class="col-4 text-right d-none d-lg-block">
-                <i class="fal fa-clock"></i> Giờ làm việc: 8h - 18h / Thứ 2 - 7 hàng tuần
+                <i class="fal fa-clock"></i> Giờ làm việc: @ViewBag.Config.SocialLink7
             </div>
         </div>
     </div>
@@ -16,7 +16,7 @@
         <div class="row">
             <div class="col-lg-2 col-9">
                 <a href="/" class="logo">
-                    <img src="/user/assets/Content/images/logo.jpg" class="img-fluid" alt="Kế toán QC" />
+                    <img src="@ViewBag.Logo.Image" class="img-fluid" alt="@ViewBag.Logo.Name" />
                 </a>
                 <div class="icon-menu">
                     <i class="fal fa-bars"></i>
@@ -58,7 +58,7 @@
             <div class="col-lg-2 col-3 order-1 order-lg-2">
                 <div class="hotline">
                     <a href="tel:0976428786">
-                        <i class="fal fa-phone-alt"></i> <span>0976428786</span>
+                        <i class="fal fa-phone-alt"></i> <span>@ViewBag.Config.HotLine</span>
                     </a>
                 </div>
             </div>
