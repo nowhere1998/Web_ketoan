@@ -37,7 +37,7 @@
             <input asp-for="Ord" type="number" min="1" class="form-control" placeholder="Ví dụ: 1, 2, 3..." />
             <span asp-validation-for="Ord" class="text-danger"></span>
         </div>
-        <div class="mb-3 mt-3">
+      @*   <div class="mb-3 mt-3">
             <label>Hình ảnh</label>
             <input asp-for="Image" />
             <div style="float:left">
@@ -45,12 +45,12 @@
             </div>
             <button type="button" id="btnBrowse">Chọn ảnh</button>
             <span asp-validation-for="Image" class="text-danger"></span>
-        </div>
+        </div> *@
         <div class="row mb-3">
-            <div class="col-md-4">
+        @*     <div class="col-md-4">
                 <label class="form-label fw-semibold">Ngôn ngữ</label>
                 <input asp-for="Lang" class="form-control" placeholder="vi / en" />
-            </div>
+            </div> *@
             <div class="col-md-4">
                 <label class="form-label fw-semibold">Hiển thị</label>
                 <select asp-for="Active" class="form-select">

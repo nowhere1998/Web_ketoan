@@ -38,7 +38,6 @@
         <thead class="table-primary">
             <tr style="border-bottom:2px solid #cfd4da;">
                 <th>Nhóm hình ảnh</th>
-                <th>Hỉnh ảnh</th>
                 <th>Thứ tự</th>
                 <th>Kích hoạt</th>
                 <th class="text-center">Hành động</th>
@@ -51,9 +50,9 @@
                 <tr style="border-bottom:1px solid #dee2e6;">
                 
                     <td class="TableView_Text">@Html.DisplayName(StringHelper.ShowNameLevel(item.Name, item.Level))</td>
-                    <td class="TableView_Img">
+              @*       <td class="TableView_Img">
                         <img src="@item.Image" width="70px" alt="@item.Name" />
-                    </td>
+                    </td> *@
                     <td class="TableView_Number">@item.Ord</td>
                     <td class="TableView_TextShort">
                         @if (item.Active == 0)
