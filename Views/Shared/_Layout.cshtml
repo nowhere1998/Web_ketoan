@@ -80,7 +80,7 @@
                 clickOutside: false,
                 clickSlide: false
             });
-        }, 15000);
+        }, false);
     </script>
     <script type="text/javascript">
         var exec = false;
@@ -92,7 +92,7 @@
         }
         addListenerMulti(document, "scroll wheel touchstart", function (e) {
             if (!exec) {
-                $.getScript("../Scripts/bundle_after.min.js", function () {
+                $.getScript("/user/assets/Scripts/bundle_after.min.js", function () {
                     indexJs();
                 });
                 $(".icon-menu").on("click", function () {

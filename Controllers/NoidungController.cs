@@ -1,13 +1,23 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using MyShop.Models;
 
 namespace MyShop.Controllers
 {
 	public class NoidungController : Controller
 	{
-		[Route("noi-dung/{slug}")]
+		private readonly DbMyShopContext _context;
+        public NoidungController(DbMyShopContext context)
+        {
+            _context = context;
+        }
+        [Route("noi-dung/{slug}")]
 		public IActionResult Index(string slug = "")
 		{
-			return View();
+            var page = _context.Pages
+                .Where(x => x.Tag == slug && x.Active == 1)
+                .FirstOrDefault() ?? new Page();
+            return View(page);
 		}
 	}
 }

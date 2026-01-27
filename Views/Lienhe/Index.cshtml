@@ -1,0 +1,268 @@
+﻿@{
+    ViewData["Title"] = "Liên hệ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="sub-header">
+    <div class="container">
+        <h1>Liên hệ</h1>
+        <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
+            <li class="breadcrumb-item active">Liên hệ</li>
+        </ul>
+    </div>
+</div>
+<div class="container wrapper-content">
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="contact-item">
+                <i class="fal fa-phone-alt"></i>
+                <div class="contact-item-body">
+                    <p>Phone number</p>
+                    <div>0976428786</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="contact-item">
+                <i class="fal fa-envelope"></i>
+                <div class="contact-item-body">
+                    <p>Email address</p>
+                    <div>ketoanthueqc@gmail.com</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="contact-item">
+                <i class="fal fa-map-marker-alt"></i>
+                <div class="contact-item-body">
+                    <p>Address</p>
+                    <div>
+                        Ô số 5A, Tầng 1, Tòa nhà Sunrise Building IIIB, KĐT Sài Đồng, P.
+                        Phúc Lợi, Hà Nội
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="shadow border p-3">
+                <form action="/lien-he" id="contactForm" method="post">
+                    <p class="alert alert-info">
+                        Quý khách vui lòng nhập đầy đủ thông tin để chúng tôi liên hệ
+                        lại trong thời gian sớm nhất.
+                    </p>
+                    <input name="__RequestVerificationToken"
+                           type="hidden"
+                           value="EsqV9oyuWerw54fpa7TczrG0B15HuhQ_AVJ35BZDzd7eEL0HIddYIRopw9BZP9V_lOIwJu1Pz2f33jAaPLKCdXMQj6SjHkExGWI0DgVmBP41" />
+                    <div class="form-group form-row">
+                        <div class="col-sm-12">
+                            <input class="form-control"
+                                   data-val="true"
+                                   data-val-length="Tối đa 50 ký tự"
+                                   data-val-length-max="50"
+                                   data-val-required="Bạn vui lòng nhập thông tin"
+                                   id="Fullname"
+                                   name="Fullname"
+                                   placeholder="Họ và tên"
+                                   type="text" />
+                            <span class="field-validation-valid"
+                                  data-valmsg-for="Fullname"
+                                  data-valmsg-replace="true"></span>
+                        </div>
+                    </div>
+                    <div class="form-group form-row">
+                        <div class="col-sm-12">
+                            <input class="form-control"
+                                   data-val="true"
+                                   data-val-length="Tối đa 200 ký tự"
+                                   data-val-length-max="200"
+                                   data-val-required="Bạn vui lòng nhập thông tin"
+                                   id="Address"
+                                   name="Address"
+                                   placeholder="Địa chỉ"
+                                   type="text" />
+                            <span class="field-validation-valid"
+                                  data-valmsg-for="Address"
+                                  data-valmsg-replace="true"></span>
+                        </div>
+                    </div>
+                    <div class="form-group form-row">
+                        <div class="col-sm-12">
+                            <input class="form-control"
+                                   data-val="true"
+                                   data-val-length="Tối đa 20 ký tự"
+                                   data-val-length-max="20"
+                                   data-val-regex="Số điện thoại không hợp lệ"
+                                   data-val-regex-pattern="(0)\d{9}"
+                                   data-val-required="Bạn vui lòng nhập thông tin"
+                                   id="Mobile"
+                                   name="Mobile"
+                                   placeholder="Điện thoại"
+                                   type="text" />
+                            <span class="field-validation-valid"
+                                  data-valmsg-for="Mobile"
+                                  data-valmsg-replace="true"></span>
+                        </div>
+                    </div>
+                    <div class="form-group form-row">
+                        <div class="col-sm-12">
+                            <input class="form-control"
+                                   data-val="true"
+                                   data-val-email="Email không hợp lệ"
+                                   data-val-length="Tối đa 100 ký tự"
+                                   data-val-length-max="100"
+                                   data-val-required="Bạn chưa nhập Email"
+                                   id="Email"
+                                   name="Email"
+                                   placeholder="Email"
+                                   required="required"
+                                   type="text" />
+                            <span class="field-validation-valid"
+                                  data-valmsg-for="Email"
+                                  data-valmsg-replace="true"></span>
+                        </div>
+                    </div>
+                    <div class="form-group form-row">
+                        <div class="col-sm-12">
+                            <textarea class="form-control"
+                                      cols="20"
+                                      data-val="true"
+                                      data-val-length="The field Nội dung must be a string with a maximum length of 4000."
+                                      data-val-length-max="4000"
+                                      data-val-required="Bạn vui lòng nhập thông tin"
+                                      id="Body"
+                                      name="Body"
+                                      placeholder="Nội dung"
+                                      rows="4"></textarea>
+                            <span class="field-validation-valid"
+                                  data-valmsg-for="Body"
+                                  data-valmsg-replace="true"></span>
+                        </div>
+                    </div>
+                    <div class="form-group form-row">
+                        <div class="col-sm-12">
+                            <button type="button"
+                                    class="btn btn-primary g-recaptcha"
+                                    data-sitekey="6Lf-TMIZAAAAAOD-4H1eJo2Rbiej7hv50_UkEvEt"
+                                    data-callback="sendContact">
+                                <i class="fa fa-check"></i> GỬI THÔNG TIN
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-lg-6 mt-4 mt-lg-0">
+            <div class="body-content">
+                <p dir="ltr">
+                    <b id="docs-internal-guid-634d0fd7-7fff-28c5-e641-bd18ba4b7984">C&Ocirc;NG TY TNHH TƯ VẤN KẾ TO&Aacute;N THUẾ QC</b>
+                </p>
+                <p dir="ltr">
+                    <b id="docs-internal-guid-634d0fd7-7fff-28c5-e641-bd18ba4b7984">
+                        <img alt="🏩"
+                             height="16"
+                             src="https://lh3.googleusercontent.com/_Bw5IOBa7k_FvUItS9iEEz_Fve8W58KzxUVjJs1vExR8oQs-wUgOnpJP-V2T_BGedTim3bQediw1jIOhnFZQN40kmfPrRg4GKcJDlrV6Wymkp5Qm1uKBRVR0yGS8lFokCxZ6Y_zWr5a7I-ADrAFI4jU"
+                             width="16" />&nbsp;
+                    </b>Địa chỉ trụ sở ch&iacute;nh: Số 55, ng&otilde; 207/103, phố
+                    Nhang, Phường&nbsp;Xu&acirc;n Đỉnh, H&agrave; Nội.
+                </p>
+                <p dir="ltr">
+                    <b id="docs-internal-guid-634d0fd7-7fff-28c5-e641-bd18ba4b7984">
+                        <img alt="🏪"
+                             height="16"
+                             src="https://lh6.googleusercontent.com/3ITWWS-qBZjcAcblJdxKwE1hFzLmzIQ0A68N0ZgCmiMEuqtxpBTgqrFcBLmddaKPibWpjTRWIBxrGPlPBEsVFzGfPPje0dJyXEEq0IkASGfWZo23-DOabQ76uWHhco8z9w0B1Pn9UQV6-_g2w7xaJWg"
+                             width="16" />&nbsp;
+                    </b>Văn ph&ograve;ng Ph&uacute;c Lợi: &Ocirc; số 5A, Tầng 1,
+                    T&ograve;a nh&agrave; Sunrise Building IIIB, KĐT S&agrave;i Đồng,
+                    Phường&nbsp;Ph&uacute;c Lợi, H&agrave; Nội.
+                </p>
+                <p dir="ltr">
+                    <b id="docs-internal-guid-634d0fd7-7fff-28c5-e641-bd18ba4b7984">
+                        <img alt="🏪"
+                             height="16"
+                             src="https://lh6.googleusercontent.com/3ITWWS-qBZjcAcblJdxKwE1hFzLmzIQ0A68N0ZgCmiMEuqtxpBTgqrFcBLmddaKPibWpjTRWIBxrGPlPBEsVFzGfPPje0dJyXEEq0IkASGfWZo23-DOabQ76uWHhco8z9w0B1Pn9UQV6-_g2w7xaJWg"
+                             width="16" />&nbsp;
+                    </b>Văn ph&ograve;ng Mai Động: S&ocirc;́ 108, ng&otilde; 92 phố Mai
+                    Động, Phường&nbsp;Mai Động, H&agrave; Nội.
+                </p>
+                <p dir="ltr">
+                    <b id="docs-internal-guid-634d0fd7-7fff-28c5-e641-bd18ba4b7984">
+                        <img alt="🏪"
+                             height="16"
+                             src="https://lh6.googleusercontent.com/3ITWWS-qBZjcAcblJdxKwE1hFzLmzIQ0A68N0ZgCmiMEuqtxpBTgqrFcBLmddaKPibWpjTRWIBxrGPlPBEsVFzGfPPje0dJyXEEq0IkASGfWZo23-DOabQ76uWHhco8z9w0B1Pn9UQV6-_g2w7xaJWg"
+                             width="16" />&nbsp;
+                    </b>Văn ph&ograve;ng Ho&agrave;ng Liệt: Số 30 ng&otilde; 50 đường
+                    Nguyễn Hữu Thọ, Phường&nbsp;Ho&agrave;ng Liệt, H&agrave; Nội.
+                </p>
+                <p dir="ltr">
+                    <b id="docs-internal-guid-634d0fd7-7fff-28c5-e641-bd18ba4b7984">
+                        <img alt="🏪"
+                             height="16"
+                             src="https://lh6.googleusercontent.com/3ITWWS-qBZjcAcblJdxKwE1hFzLmzIQ0A68N0ZgCmiMEuqtxpBTgqrFcBLmddaKPibWpjTRWIBxrGPlPBEsVFzGfPPje0dJyXEEq0IkASGfWZo23-DOabQ76uWHhco8z9w0B1Pn9UQV6-_g2w7xaJWg"
+                             width="16" />&nbsp;
+                    </b>Văn Ph&ograve;ng Thuận An: Số 51, Biệt thự Hoa Vi&ecirc;n, KĐT
+                    Đặng X&aacute;, X&atilde; Thuận An, H&agrave; Nội.
+                </p>
+                <p dir="ltr">
+                    <b id="docs-internal-guid-634d0fd7-7fff-28c5-e641-bd18ba4b7984">
+                        <img alt="🏪"
+                             height="16"
+                             src="https://lh6.googleusercontent.com/3ITWWS-qBZjcAcblJdxKwE1hFzLmzIQ0A68N0ZgCmiMEuqtxpBTgqrFcBLmddaKPibWpjTRWIBxrGPlPBEsVFzGfPPje0dJyXEEq0IkASGfWZo23-DOabQ76uWHhco8z9w0B1Pn9UQV6-_g2w7xaJWg"
+                             width="16" />
+                    </b><b id="docs-internal-guid-634d0fd7-7fff-28c5-e641-bd18ba4b7984">&nbsp;</b>Văn Ph&ograve;ng Tương Mai: Tầng 2, Số 361 Louis 1, Khu đ&ocirc;
+                    thị Louis City Ho&agrave;ng Mai - Phường&nbsp;Tương Mai, H&agrave;
+                    Nội
+                </p>
+                <p dir="ltr">
+                    <b id="docs-internal-guid-634d0fd7-7fff-28c5-e641-bd18ba4b7984">
+                        <img alt="🏪"
+                             height="16"
+                             src="https://lh6.googleusercontent.com/3ITWWS-qBZjcAcblJdxKwE1hFzLmzIQ0A68N0ZgCmiMEuqtxpBTgqrFcBLmddaKPibWpjTRWIBxrGPlPBEsVFzGfPPje0dJyXEEq0IkASGfWZo23-DOabQ76uWHhco8z9w0B1Pn9UQV6-_g2w7xaJWg"
+                             width="16" />
+                    </b><b id="docs-internal-guid-634d0fd7-7fff-28c5-e641-bd18ba4b7984">&nbsp;</b>Văn Ph&ograve;ng Y&ecirc;n H&ograve;a:&nbsp;Số 33, Ng&otilde; 193
+                    Trung K&iacute;nh, Phường&nbsp;Y&ecirc;n H&ograve;a, H&agrave; Nội
+                </p>
+                <p dir="ltr">
+                    <b id="docs-internal-guid-634d0fd7-7fff-28c5-e641-bd18ba4b7984">
+                        <img alt="🏪"
+                             height="16"
+                             src="https://lh6.googleusercontent.com/3ITWWS-qBZjcAcblJdxKwE1hFzLmzIQ0A68N0ZgCmiMEuqtxpBTgqrFcBLmddaKPibWpjTRWIBxrGPlPBEsVFzGfPPje0dJyXEEq0IkASGfWZo23-DOabQ76uWHhco8z9w0B1Pn9UQV6-_g2w7xaJWg"
+                             width="16" />&nbsp;
+                    </b>Văn Ph&ograve;ng Bạch Mai: Tầng 2, T&ograve;a HH1 Meco Complex,
+                    Ng&otilde; 102 Trường Chinh, Phường&nbsp;Bạch Mai, H&agrave; Nội
+                </p>
+                <p dir="ltr">
+                    <b id="docs-internal-guid-634d0fd7-7fff-28c5-e641-bd18ba4b7984">
+                        <img alt="🏪"
+                             height="16"
+                             src="https://lh6.googleusercontent.com/3ITWWS-qBZjcAcblJdxKwE1hFzLmzIQ0A68N0ZgCmiMEuqtxpBTgqrFcBLmddaKPibWpjTRWIBxrGPlPBEsVFzGfPPje0dJyXEEq0IkASGfWZo23-DOabQ76uWHhco8z9w0B1Pn9UQV6-_g2w7xaJWg"
+                             width="16" />&nbsp;
+                    </b>Văn Ph&ograve;ng Đ&agrave; Nẵng: K80/6/6 đường T&ocirc;n Đức
+                    Thắng - Phường&nbsp;H&ograve;a Kh&aacute;nh - TP.Đ&agrave; Nẵng
+                </p>
+                <p dir="ltr">
+                    <br />
+                    <span class="fal fa-fw fa-phone-alt"></span>
+                    <strong>Hotline Tư vấn 24/7</strong>: &nbsp;<strong>0903&nbsp;288&nbsp;633&nbsp;/ 0976 428 786</strong><br />
+                    <span class="fal fa-fw fa-envelope"></span><strong> ketoanthueqc@gmail.com</strong><br />
+                    <span class="fal fa-fw fa-globe"></span><strong>
+                        <a href="https://ketoanthueqc.com/">www.ketoanthueqc.com</a>
+                    </strong>
+                </p>
+            </div>
+            <hr />
+            <h5>Bản đồ</h5>
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14895.345677184492!2d105.9062002!3d21.0392303!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135a9a20a850c87%3A0x142909579c0f730!2zS-G6vyBUb8OhbiBUaHXhur8gUUMgVsSDbiBQaMOybmcgTG9uZyBCacOqbg!5e0!3m2!1svi!2s!4v1689324605912!5m2!1svi!2s"
+                        width="600"
+                        height="450"
+                        style="border: 0"
+                        allowfullscreen="allowfullscreen"
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
