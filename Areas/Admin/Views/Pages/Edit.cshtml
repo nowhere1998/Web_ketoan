@@ -21,7 +21,7 @@
     </div>
 
     <!-- Form -->
-    <form asp-action="Edit" method="post" id="pageForm">
+    <form asp-action="Edit" method="post" id="pageForm" enctype="multipart/form-data">
 
         <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
 
@@ -99,9 +99,9 @@
                     <option value="1">Menu trên</option>
                     <option value="2">Menu giữa</option>
                     <option value="3">Menu dưới</option>
-                    <option value="4">Giữa dưới</option>
-                    <option value="5">Menu nhỏ trên cùng</option>
-                    <option value="6">Trên dưới</option>
+                    <option value="4">Menu giữa dưới</option>
+                    <option value="5">Menu trên giữa</option>
+                    <option value="6">Menu trên dưới</option>
                 </select>
             </div>
         </div>
@@ -128,7 +128,12 @@
             <input asp-for="Ord" type="number" min="1" class="form-control" placeholder="Ví dụ: 1, 2, 3..." />
             <span asp-validation-for="Ord" class="text-danger"></span>
         </div>
-
+        <div class="form-group">
+            <label asp-for="Content" class="control-label">Ảnh</label>
+            <input type="file" name="fileupload" class="form-control" accept="image/jpg,image/jpeg,image/png" />
+            <img class="mt-2" src="@Model.Content" width="100" />
+            <input type="hidden" name="PictureOld" value="@Model.Content" />
+        </div>
         <!-- Kích hoạt -->
         <label class="form-label fw-semibold">Kích hoạt</label>
         <select asp-for="Active" class="form-select">

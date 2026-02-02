@@ -1,0 +1,171 @@
+﻿@{
+    ViewData["Title"] = "Liên hệ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="sub-header">
+    <div class="container">
+        <h1>Liên hệ</h1>
+        <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
+            <li class="breadcrumb-item active">Liên hệ</li>
+        </ul>
+    </div>
+</div>
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success text-center" style="font-weight:bold">
+        @TempData["Success"]
+    </div>
+}
+<div class="container wrapper-content">
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="contact-item">
+                <i class="fal fa-phone-alt"></i>
+                <div class="contact-item-body">
+                    <p>Phone number</p>
+                    <div>@ViewBag.Config.HotLine</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="contact-item">
+                <i class="fal fa-envelope"></i>
+                <div class="contact-item-body">
+                    <p>Email address</p>
+                    <div>@ViewBag.Config.MailInfo</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="contact-item">
+                <i class="fal fa-map-marker-alt"></i>
+                <div class="contact-item-body">
+                    <p>Address</p>
+                    <div>
+                        @ViewBag.Config.SocialLink5
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="shadow border p-3">
+                <form action="/lien-he" id="contactForm" method="post">
+                    <p class="alert alert-info">
+                        Quý khách vui lòng nhập đầy đủ thông tin để chúng tôi liên hệ
+                        lại trong thời gian sớm nhất.
+                    </p>
+                    @Html.AntiForgeryToken()
+                    <div class="form-group form-row">
+                        <div class="col-sm-12">
+                            <input class="form-control"
+                                   id="Name"
+                                   name="Name"
+                                   placeholder="Họ và tên"
+                                   type="text" />
+
+                            <span class="field-validation-valid"
+                                  data-valmsg-for="Fullname"
+                                  data-valmsg-replace="true"></span>
+                        </div>
+                    </div>
+                    <div class="form-group form-row">
+                        <div class="col-sm-12">
+                            <input class="form-control"
+                                   id="Address"
+                                   name="Address"
+                                   placeholder="Địa chỉ"
+                                   type="text" />
+                            <span class="field-validation-valid"
+                                  data-valmsg-for="Address"
+                                  data-valmsg-replace="true"></span>
+                        </div>
+                    </div>
+                    <div class="form-group form-row">
+                        <div class="col-sm-12">
+                            <input class="form-control"
+                                   id="Tel"
+                                   name="Tel"
+                                   placeholder="Điện thoại"
+                                   type="text" />
+
+                            <span class="field-validation-valid"
+                                  data-valmsg-for="Mobile"
+                                  data-valmsg-replace="true"></span>
+                        </div>
+                    </div>
+                    <div class="form-group form-row">
+                        <div class="col-sm-12">
+                            <input class="form-control"
+                                   id="Mail"
+                                   name="Mail"
+                                   placeholder="Email"
+                                   type="text" />
+                            <span class="field-validation-valid"
+                                  data-valmsg-for="Email"
+                                  data-valmsg-replace="true"></span>
+                        </div>
+                    </div>
+                    <div class="form-group form-row">
+                        <div class="col-sm-12">
+                            <textarea class="form-control"
+                                      id="Detail"
+                                      name="Detail"
+                                      placeholder="Nội dung"
+                                      rows="4"></textarea>
+                            <span class="field-validation-valid"
+                                  data-valmsg-for="Body"
+                                  data-valmsg-replace="true"></span>
+                        </div>
+                    </div>
+                    <div class="form-group form-row">
+                        <div class="col-sm-12">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fa fa-check"></i> GỬI THÔNG TIN
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-lg-6 mt-4 mt-lg-0">
+            <div class="body-content">
+                <p dir="ltr">
+                    <b id="docs-internal-guid-634d0fd7-7fff-28c5-e641-bd18ba4b7984">@ViewBag.Config.SocialLink6</b>
+                </p>
+                <p dir="ltr">
+                    <b id="docs-internal-guid-634d0fd7-7fff-28c5-e641-bd18ba4b7984">
+                        <img alt="🏩"
+                             height="16"
+                             src="https://lh3.googleusercontent.com/_Bw5IOBa7k_FvUItS9iEEz_Fve8W58KzxUVjJs1vExR8oQs-wUgOnpJP-V2T_BGedTim3bQediw1jIOhnFZQN40kmfPrRg4GKcJDlrV6Wymkp5Qm1uKBRVR0yGS8lFokCxZ6Y_zWr5a7I-ADrAFI4jU"
+                             width="16" />&nbsp;
+                    </b>@ViewBag.Config.SocialLink5
+                </p>
+                <p dir="ltr">
+                    <br />
+                    <span class="fal fa-fw fa-phone-alt"></span>
+                    <strong>Hotline Tư vấn 24/7</strong>: &nbsp;<strong>@ViewBag.Config.HotLine</strong><br />
+                    <span class="fal fa-fw fa-envelope"></span><strong> @ViewBag.Config.MailInfo</strong><br />
+                    @* <span class="fal fa-fw fa-globe"></span><strong>
+                        <a href="https://ketoanthueqc.com/">www.ketoanthueqc.com</a>
+                    </strong> *@
+                </p>
+            </div>
+            <hr />
+            <h5>Bản đồ</h5>
+            <div class="embed-responsive embed-responsive-16by9">
+                @Html.Raw(ViewBag.Config.Copyright)
+                @* <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14895.345677184492!2d105.9062002!3d21.0392303!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135a9a20a850c87%3A0x142909579c0f730!2zS-G6vyBUb8OhbiBUaHXhur8gUUMgVsSDbiBQaMOybmcgTG9uZyBCacOqbg!5e0!3m2!1svi!2s!4v1689324605912!5m2!1svi!2s"
+                        width="600"
+                        height="450"
+                        style="border: 0"
+                        allowfullscreen="allowfullscreen"
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe> *@
+            </div>
+        </div>
+    </div>
+</div>

@@ -2,10 +2,10 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8">
-                <i class="fal fa-map-marker"></i> Ô số 5A, Tầng 1, Tòa Sunrise Building IIIB, KĐT Sài Đồng, P. Phúc Lợi, Hà Nội
+                <i class="fal fa-map-marker"></i> @ViewBag.Config.SocialLink5
             </div>
             <div class="col-4 text-right d-none d-lg-block">
-                <i class="fal fa-clock"></i> Giờ làm việc: 8h - 18h / Thứ 2 - 7 hàng tuần
+                <i class="fal fa-clock"></i> Giờ làm việc: @ViewBag.Config.SocialLink7
             </div>
         </div>
     </div>
@@ -15,8 +15,8 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-2 col-9">
-                <a href="../index.html" class="logo">
-                    <img src="/user/assets/Content/images/logo.jpg" class="img-fluid" alt="Kế toán QC" />
+                <a href="/" class="logo">
+                    <img src="@ViewBag.Logo.Image" class="img-fluid" alt="@ViewBag.Logo.Name" />
                 </a>
                 <div class="icon-menu">
                     <i class="fal fa-bars"></i>
@@ -24,46 +24,41 @@
             </div>
             <nav class="col-lg-8 order-2 order-lg-1 my-0 my-lg-auto">
                 <ul>
-                    <li><a href="../gioi-thieu.html">Giới thiệu</a></li>
-                    <li>
-                        <a href="../dich-vu-ke-toan.html">Dịch vụ kế to&#225;n</a>
-                        <ul>
-                            <li><a href="../dich-vu-ke-toan-thue-tron-goi.html">Dịch vụ kế to&#225;n thuế trọn g&#243;i</a></li>
-                            <li><a href="../kiem-tra-don-dep-lai-so-sach-ke-toan.html">Kiểm tra, dọn dẹp lại sổ s&#225;ch kế to&#225;n</a></li>
-                            <li><a href="../dich-vu-quyet-toan-thue.html">Dịch vụ quyết to&#225;n thuế</a></li>
-                            <li><a href="../tu-van-quan-ly-tai-chinh-ke-toan-doanh-nghiep.html">Tư vấn quản l&#253; t&#224;i ch&#237;nh, kế to&#225;n Doanh nghiệp</a></li>
-                            <li><a href="../thanh-lap-doanh-nghiep.html">Th&#224;nh lập doanh nghiệp</a></li>
-                            <li><a href="../thay-doi-dang-ky-kinh-doanh.html">Thay đổi đăng k&#253; kinh doanh</a></li>
-                            <li><a href="../dich-vu-hoan-thien-bao-cao-tai-chinh.html">Dịch vụ ho&#224;n thiện b&#225;o c&#225;o t&#224;i ch&#237;nh</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="../dao-tao-ke-toan.html">Đ&#224;o tạo kế to&#225;n</a>
-                        <ul>
-                            <li><a href="../khoa-hoc-ke-toan-tong-hop.html">Kh&#243;a học kế to&#225;n tổng hợp</a></li>
-                            <li><a href="../khoa-hoc-ke-toan-thue-ngan-han.html">Kh&#243;a học kế to&#225;n thuế ngắn hạn</a></li>
-                            <li><a href="../khoa-hoc-phan-mem-ke-toan-fast-misa.html">Kh&#243;a học phần mềm kế to&#225;n Fast - Misa</a></li>
-                            <li><a href="../khoa-hoc-ke-toan-danh-cho-giam-doc.html">Kh&#243;a học kế to&#225;n d&#224;nh cho Gi&#225;m Đốc</a></li>
-                            <li><a href="../khoa-hoc-ke-toan-cho-nguoi-moi-bat-dau.html">Kh&#243;a học kế to&#225;n cho người mới bắt đầu</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="tin-tuc.html">Tin tức</a>
-                    </li>
-                    <li>
-                        <a href="#">Thư viện</a>
-                        <ul>
-                            <li><a href="../albums.html">Hình ảnh</a></li>
-                            <li><a href="../videos.html">Videos</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="../lien-he.html">Liên hệ</a></li>
+                    @* list menu *@
+                    @foreach (PageL1 pl1 in ViewBag.PagesL1)
+                    {
+                        @if (pl1.HasChild)
+                        {
+                            <li>
+                                <a href="@pl1.Page.Link">@pl1.Page.Name</a>
+                                <ul>
+                                    @foreach (var pl2 in ViewBag.PagesL2)
+                                    {
+                                        @if (pl2.Level.Substring(0, 5) == pl1.Page.Level)
+                                        {
+                                            <li>
+                                                <a href="@pl2.Link">@pl2.Name</a>
+                                            </li>
+                                        }
+                                    }
+                                </ul>
+                            </li>
+                        }
+                        else
+                        {
+                            <li>
+                                <a href="@pl1.Page.Link">@pl1.Page.Name</a>
+                            </li>
+                        }
+
+                    }
+                    @* end list menu *@
                 </ul>
             </nav>
             <div class="col-lg-2 col-3 order-1 order-lg-2">
                 <div class="hotline">
                     <a href="tel:0976428786">
-                        <i class="fal fa-phone-alt"></i> <span>0976428786</span>
+                        <i class="fal fa-phone-alt"></i> <span>@ViewBag.Config.HotLine</span>
                     </a>
                 </div>
             </div>

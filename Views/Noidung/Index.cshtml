@@ -1,4 +1,22 @@
-﻿@{
+﻿@model MyShop.Models.Page
+@{
 	ViewData["Title"] = "Nội dung";
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="sub-header">
+    <div class="container">
+        <div class="name">@Model.Name</div>
+        <ul class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="/"><i class="fal fa-home"></i></a>
+            </li>
+            <li class="breadcrumb-item active">@Model.Name</li>
+        </ul>
+    </div>
+</div>
+<div class="container wrapper-content">
+    <div class="row">
+        @await Component.InvokeAsync("Sidemenu")
+        @Html.Raw(Model.Detail)
+    </div>
+</div>

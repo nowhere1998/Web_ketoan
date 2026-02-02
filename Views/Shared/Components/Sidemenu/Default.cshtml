@@ -1,0 +1,46 @@
+﻿<div class="col-lg-3 order-1 order-lg-0">
+    <ul class="menu-left">
+        @foreach (PageL1 pl1 in ViewBag.PagesL1)
+        {
+            <li>
+                <a href="@pl1.Page.Link">@pl1.Page.Name</a>
+                <ul>
+                    @foreach(Page pl2 in ViewBag.PagesL2)
+                    {
+                        @if (pl2.Level.Substring(0, 5) == pl1.Page.Level)
+                        {
+                            <li>
+                                <a href="@pl2.Link">
+                                    <i class="fal fa-angle-right"></i> @pl2.Name
+                                </a>
+                            </li>
+                        }
+                    } 
+                </ul>
+            </li>
+        }
+    </ul>
+    <div class="embed-responsive embed-responsive-16by9">
+        <iframe src="https://www.facebook.com/plugins/page.php?
+href=https%3A%2F%2Fwww.facebook.com%2Fbachkhoaaptechedu
+&tabs=
+&width=340
+&height=130
+&small_header=false
+&adapt_container_width=true
+&hide_cover=false
+&show_facepile=false"
+                width="340"
+                height="130"
+                style="border:none;overflow:hidden"
+                scrolling="no"
+                frameborder="0"
+                allowfullscreen="true">
+        </iframe>
+
+    </div>
+    <div class="g-ytsubscribe"
+         data-channelid="UCHwrhB2OAfI4x1sHMX2txSg"
+         data-layout="full"
+         data-count="default"></div>
+</div>
