@@ -144,6 +144,7 @@ namespace MyShop.Areas.Admin.Controllers
             dbLibrary.Name = data.Name;
             dbLibrary.GroupLibraryId = data.GroupLibraryId;
             dbLibrary.Active = data.Active;
+            dbLibrary.File = data.File;
             dbLibrary.Tag = "";
             dbLibrary.Info = "";
             dbLibrary.MemberId = 0;
