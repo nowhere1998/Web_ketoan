@@ -41,7 +41,7 @@
                 {
                     <div class="col-lg-4 col-sm-6 mt-lg-4 mt-3">
                         <div class="embed-responsive embed-responsive-16by9">
-                            <iframe class="lazyload"
+                            @* <iframe class="lazyload"
                                     width="560"
                                     height="315"
                                     data-src="@l.File"
@@ -55,7 +55,51 @@
                 gyroscope;
                 picture-in-picture;
                           "
-                                    allowfullscreen="allowfullscreen"></iframe>
+                                    allowfullscreen="allowfullscreen"></iframe> *@
+                            @{
+                                var videoUrl = l.File;
+                                string embedUrl = "";
+
+                                if (!string.IsNullOrEmpty(videoUrl))
+                                {
+                                    // watch?v=
+                                    if (videoUrl.Contains("youtube.com/watch"))
+                                    {
+                                        var uri = new Uri(videoUrl);
+                                        var query = System.Web.HttpUtility.ParseQueryString(uri.Query);
+                                        var videoId = query["v"];
+
+                                        if (!string.IsNullOrEmpty(videoId))
+                                        {
+                                            embedUrl = "https://www.youtube.com/embed/" + videoId;
+                                        }
+                                    }
+                                    // youtu.be
+                                    else if (videoUrl.Contains("youtu.be"))
+                                    {
+                                        var uri = new Uri(videoUrl);
+                                        var videoId = uri.AbsolutePath.Trim('/');
+                                        embedUrl = "https://www.youtube.com/embed/" + videoId;
+                                    }
+                                    // đã là embed sẵn
+                                    else if (videoUrl.Contains("youtube.com/embed"))
+                                    {
+                                        embedUrl = videoUrl;
+                                    }
+                                }
+                            }
+
+                            @if (!string.IsNullOrEmpty(embedUrl))
+                            {
+                                <iframe width="100%"
+                                        height="315"
+                                        src="@embedUrl"
+                                        frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen>
+                                </iframe>
+                            }
+
                         </div>
                         <p class="mt-2 font-weight-bold">
                             @l.Name
