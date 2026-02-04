@@ -32,15 +32,31 @@ namespace MyShop.Controllers
             //var products = _context.Products
             //    .Where(p => p.Status == "active")
             //    .ToList();
-            //var banners = _context.Advertises
-            //    .Where(x => x.Position == 1)
-            //    .OrderBy(x => x.Ord)
-            //    .ToList();
+            var slides = _context.Advertises
+                .Where(x => x.Position == 2)
+                .OrderBy(x => x.Ord)
+                .ToList();
             //var news = _context.News
             //    .OrderByDescending(x => x.Id)
             //    .Where(x => x.Status == 1)
             //    .ToList();
+            var menuGiua = _context.Pages
+                .Where(x => 
+                    x.Active == 1
+                    && (x.Position == 2 || x.Position == 4)
+                    && x.Level.Length == 5
+                 )
+                .OrderBy(x => x.Ord)   
+                .ToList();
+            var config = _context.Configs.FirstOrDefault() ?? new Config();
+            var bgThongke = _context.Advertises
+                .Where(x => x.Position == 8 && x.Active)
+                .FirstOrDefault() ?? new Advertise();
 
+            ViewBag.MenuGiua = menuGiua;
+            ViewBag.Config = config;
+            ViewBag.Slides = slides;
+            ViewBag.BgThongke = bgThongke;
             //ViewBag.News = news;
             //ViewBag.Categories = categories;
             //ViewBag.Products = products;

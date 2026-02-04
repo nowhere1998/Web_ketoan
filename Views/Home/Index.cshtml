@@ -13,27 +13,22 @@
     </div>
 </div> *@
 <div class="banner-slide owl-carousel">
-    <div class="item">
-        <a href="https://ketoanthuegc.com/gioi-thieu/">
-            <picture>
-                <source srcset="user/assets/images/banners/2023/12/04/133461575385476361.jpg" media="(max-width:500px)">
-                <img src="user/assets/images/banners/2023/12/04/133461575385476361.jpg"
-                     class="img-fluid"
-                     alt="Slide 1">
-            </picture>
-        </a>
-    </div>
-
-    <div class="item">
-        <a href="#">
-            <picture>
-                <source srcset="/user/assets/images/articles/2025/09/05/134015177078019748.jpg" media="(max-width:500px)">
-                <img src="/user/assets/images/articles/2025/09/05/134015177078019748.jpg"
-                     class="img-fluid"
-                     alt="Slide 2">
-            </picture>
-        </a>
-    </div>
+    @* list slides *@
+    @foreach(Advertise a in ViewBag.Slides)
+    {
+        <div class="item">
+            <a href="@a.Link">
+                <picture>
+                    <source srcset="@a.Image" media="(max-width:500px)">
+                    <img src="@a.Image"
+                         class="img-fluid"
+                         alt="@a.Name">
+                </picture>
+            </a>
+        </div>
+    }
+    
+    @* end list slides *@
 </div>
 
 @* giới thiệu *@
@@ -80,7 +75,7 @@
 
                 </div>
 
-                <a href="/gioi-thieu" class="view-more-link">Xem thêm</a>
+                <a href="/noi-dung/gioi-thieu" class="view-more-link">Xem thêm</a>
             </div>
 
         </div>
@@ -97,24 +92,28 @@
 
     <div class="row justify-content-center">
 
-        <!-- Item 1 -->
-        <div class="col-lg-4 col-sm-6">
-            <div class="card card-service-item">
-                <div class="card-img">
-                    <a href="/dich-vu-ke-toan-thue-tron-goi.html">
-                        <img class="img-fluid ls-is-cached lazyloaded" alt="" src="/user/assets/images/upload/images/dich-vu-ke-toan/ke-toan-thue-tron-goi.jpg">
-                    </a>
-                </div>
-                <div class="card-body">
-                    <h2>
-                        <a href="/dich-vu-ke-toan-thue-tron-goi.html">
-                            Dịch vụ kế toán thuế trọn gói
+        @* list menu giữa *@
+        @foreach(Page p in ViewBag.MenuGiua)
+        {
+            <div class="col-lg-4 col-sm-6">
+                <div class="card card-service-item">
+                    <div class="card-img">
+                        <a href="@p.Link">
+                            <img class="img-fluid ls-is-cached lazyloaded" alt="@p.Name" src="@p.Content" style="width:100%; object-fit:cover; max-height: 200px">
                         </a>
-                    </h2>
+                    </div>
+                    <div class="card-body">
+                        <h2>
+                            <a href="@p.Link">
+                                @p.Name
+                            </a>
+                        </h2>
+                    </div>
                 </div>
             </div>
-        </div>
-
+        }
+        
+        @* end list menu giữa *@
     </div>
 </div>
 
@@ -122,11 +121,11 @@
 
 <div class="counter-box lazyloaded"
      data-bg="/user/assets/content/images/bh5.jpg"
-     style="background-image: url('/user/assets/content/images/bh5.jpg');">
+     style="background-image: url('@ViewBag.BgThongke.Image');">
 
     <div class="container">
-
-        <div class="box-heading">
+        @Html.Raw(ViewBag.Config.Contact)
+        @* <div class="box-heading">
             <h2>
                 Chúng tôi luôn đi đầu và đưa ra<br>
                 các giải pháp tối ưu nhất cho doanh nghiệp của bạn.
@@ -163,7 +162,7 @@
                 <div>Năm hoạt động</div>
             </div>
 
-        </div>
+        </div> *@
     </div>
 </div>
 
