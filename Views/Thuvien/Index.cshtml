@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MyShop.Models.News>
+﻿@model IEnumerable<MyShop.Models.Library>
 @{
     ViewData["Title"] = "Thư viện";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -17,4 +17,94 @@
 
         </ul>
     </div>
+</div>
+<div class="container wrapper-content">
+    <div class="row">
+        @if (Model.Any())
+        {
+            @foreach(Library l in Model)
+            {
+                @if (string.IsNullOrEmpty(l.File))
+                {
+                    <div class="col-lg-4 col-sm-6 mt-lg-4 mt-3">
+                        <a href="#">
+                            <img src="@l.Image"
+                                 class="img-fluid"
+                                 alt="NHÂN SỰ KẾ TOÁN THUẾ QC" />
+                        </a>
+                        <p class="mt-2 font-weight-bold text-center">
+                            <a href="#" class="text-dark">@l.Name</a>
+                        </p>
+                    </div>
+                }
+                else
+                {
+                    <div class="col-lg-4 col-sm-6 mt-lg-4 mt-3">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="lazyload"
+                                    width="560"
+                                    height="315"
+                                    data-src="@l.File"
+                                    title="YouTube video player"
+                                    frameborder="0"
+                                    allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                          "
+                                    allowfullscreen="allowfullscreen"></iframe>
+                        </div>
+                        <p class="mt-2 font-weight-bold">
+                            @l.Name
+                        </p>
+                    </div>
+                }
+            }
+            
+        }
+        else
+        {
+            <p>Đang cập nhật ...</p>
+        }
+        
+        
+    </div>
+    @if (ViewBag.TotalPages > 1)
+    {
+        <div class="text-center mt-4">
+            <ul class="pagination justify-content-center">
+
+                @* Trang trước *@
+                <li class="page-item @(ViewBag.CurrentPage == 1 ? "disabled" : "")">
+                    <a class="page-link"
+                       href="/thu-vien/@ViewBag.Slug?page=@(ViewBag.CurrentPage - 1)">
+                        «
+                    </a>
+                </li>
+
+                @for (int i = 1; i <= ViewBag.TotalPages; i++)
+                {
+                    <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
+                        <a class="page-link"
+                           href="/thu-vien/@ViewBag.Slug?page=@i">
+                            @i
+                        </a>
+                    </li>
+                }
+
+                @* Trang sau *@
+                <li class="page-item @(ViewBag.CurrentPage == ViewBag.TotalPages ? "disabled" : "")">
+                    <a class="page-link"
+                       href="/thu-vien/@ViewBag.Slug?page=@(ViewBag.CurrentPage + 1)">
+                        »
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    }
+
 </div>
