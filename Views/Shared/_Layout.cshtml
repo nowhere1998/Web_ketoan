@@ -7,6 +7,7 @@
 <meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
 <head xmlns="http://www.w3.org/1999/xhtml" prefix="og:http://ogp.me/ns# fb:http://www.facebook.com/2008/fbml">
     @await Component.InvokeAsync("Header")
+    @RenderSection("Styles", required: false)
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
@@ -23,7 +24,7 @@
     @await Component.InvokeAsync("Nav")
 
     @RenderBody()
-    @RenderSection("Styles", required: false)
+    
     @await Component.InvokeAsync("Footer")
     @await Component.InvokeAsync("Zalo")
 
