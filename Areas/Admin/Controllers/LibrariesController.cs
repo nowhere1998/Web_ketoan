@@ -101,7 +101,6 @@ namespace MyShop.Areas.Admin.Controllers
             // Giá trị mặc định
             data.Tag = "";
             data.Info = "";
-            data.File = "";
             data.MemberId = 0;
             data.Lang = "";
             data.Priority = 0;
@@ -145,9 +144,9 @@ namespace MyShop.Areas.Admin.Controllers
             dbLibrary.Name = data.Name;
             dbLibrary.GroupLibraryId = data.GroupLibraryId;
             dbLibrary.Active = data.Active;
+            dbLibrary.File = data.File;
             dbLibrary.Tag = "";
             dbLibrary.Info = "";
-            dbLibrary.File = "";
             dbLibrary.MemberId = 0;
             dbLibrary.Lang = "";
             dbLibrary.Priority = 0;
