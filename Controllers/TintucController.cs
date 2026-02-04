@@ -14,7 +14,7 @@ namespace MyShop.Controllers
         [Route("tin-tuc")]
 		public IActionResult Index(int page = 1)
         {
-            int pageSize = 6;
+            int pageSize = 12;
 
             var query = _context.News
                 .Where(x => x.Active == 1)
