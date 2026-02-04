@@ -1,5 +1,72 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model MyShop.Models.News
 @{
+    ViewData["Title"] = "Tin tức chi tiết";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="sub-header">
+    <div class="container">
+        <div class="name">@Model.Title</div>
+        <ul class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="/"><i class="fal fa-home"></i></a>
+            </li>
+            <li class="breadcrumb-item active">@Model.Title</li>
+        </ul>
+    </div>
+</div>
+<div class="container wrapper-content">
+    <div class="row">
+        <div class="col-lg-3 col-md-12">
+            @await Component.InvokeAsync("Sidemenu")
+        </div>
+
+        <div class="col-lg-9 col-md-12">
+            <div class="ckeditor-content">
+                @Html.Raw(Model.Detail)
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles
+{
+    <style>
+        /* Fix layout CKEditor */
+        .ckeditor-content {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: auto;
+            word-break: break-word;
+        }
+
+            /* Fix ảnh, video trong CKEditor */
+            .ckeditor-content img,
+            .ckeditor-content iframe,
+            .ckeditor-content video {
+                max-width: 100%;
+                height: auto;
+                display: block;
+            }
+
+            /* Fix table CKEditor */
+            .ckeditor-content table {
+                max-width: 100%;
+                width: 100%;
+                overflow-x: auto;
+                display: block;
+            }
+
+            /* Không cho content phá grid */
+            .ckeditor-content * {
+                max-width: 100%;
+                box-sizing: border-box;
+            }
+
+        /* Tránh col bị rớt dòng */
+        .wrapper-content .row {
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+    </style>
 }

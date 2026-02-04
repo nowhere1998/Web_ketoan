@@ -37,7 +37,12 @@ namespace MyShop.Controllers
         [Route("tin-tuc-chi-tiet/{slug}")]
         public IActionResult Chitiet(string slug= "")
         {
-            return View("tin-tuc-chi-tiet");
+            if (string.IsNullOrWhiteSpace(slug))
+            {
+                return RedirectToAction("Index");
+            }
+            var tintuc = _context.News.Where(x => x.Tag == slug).FirstOrDefault();
+            return View("tin-tuc-chi-tiet", tintuc);
         }
     }
 }

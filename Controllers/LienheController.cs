@@ -24,7 +24,32 @@ namespace MyShop.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Index(Contact model)
         {
+            // validate thủ công
+            if (string.IsNullOrWhiteSpace(model.Name))
+            {
+                TempData["Error"] = "Vui lòng nhập họ và tên";
+                return RedirectToAction("Index");
+            }
 
+            if (string.IsNullOrWhiteSpace(model.Tel))
+            {
+                TempData["Error"] = "Vui lòng nhập số điện thoại";
+                return RedirectToAction("Index");
+            }
+
+            if (string.IsNullOrWhiteSpace(model.Mail))
+            {
+                TempData["Error"] = "Vui lòng nhập email";
+                return RedirectToAction("Index");
+            }
+
+            if (string.IsNullOrWhiteSpace(model.Detail))
+            {
+                TempData["Error"] = "Vui lòng nhập nội dung liên hệ";
+                return RedirectToAction("Index");
+            }
+
+            // lưu DB
             model.Date = DateTime.Now;
             model.Active = 1;
             model.Lang = "vi";
@@ -36,5 +61,6 @@ namespace MyShop.Controllers
             TempData["Success"] = "Gửi liên hệ thành công!";
             return RedirectToAction("Index");
         }
+
     }
 }

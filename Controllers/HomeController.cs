@@ -47,8 +47,8 @@ namespace MyShop.Controllers
             var menuGiua = _context.Pages
                 .Where(x => 
                     x.Active == 1
-                    && (x.Position == 2 || x.Position == 4)
-                    && x.Level.Length == 5
+                    && (x.Position == 2 || x.Position == 4 || x.Position == 5)
+                    && x.Level.Length == 10
                  )
                 .OrderBy(x => x.Ord)   
                 .ToList();
@@ -56,13 +56,19 @@ namespace MyShop.Controllers
             var bgThongke = _context.Advertises
                 .Where(x => x.Position == 8 && x.Active)
                 .FirstOrDefault() ?? new Advertise();
+            var news = _context.News
+                .OrderByDescending(x => x.Id)
+                .Where(x => x.Active == 1)
+                .Skip(0)
+                .Take(6)
+                .ToList();
 
             ViewBag.MenuGiua = menuGiua;
             ViewBag.Config = config;
             ViewBag.Slides = slides;
             ViewBag.BgThongke = bgThongke;
             ViewBag.Banner = banner;
-            //ViewBag.News = news;
+            ViewBag.News = news;
             //ViewBag.Categories = categories;
             //ViewBag.Products = products;
             //ViewBag.Banners = banners;

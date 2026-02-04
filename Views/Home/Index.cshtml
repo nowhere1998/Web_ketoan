@@ -46,31 +46,19 @@
                 <img src="@ViewBag.Banner.Image"
                      style="width:@(ViewBag.Banner.Width+"px"); height:@(ViewBag.Banner.Height+"px")"
                      class="img-fluid about-img"
-                     alt="Kế toán QC">
+                     alt="@ViewBag.Banner.Name">
             </div>
 
             <!-- Cột nội dung -->
             <div class="col-lg-6 col-sm-6 order-0 order-lg-1">
                 <div class="body-content">
 
-                    <p style="text-align: justify;">
-                        Kế Toán Thuế&nbsp;QC cung cấp dịch vụ kê khai thuế, báo cáo thuế,
-                        kế toán thuế trọn gói cho doanh nghiệp, hộ kinh doanh.
-                        Kế toán thuế&nbsp;QC là công ty hoạt động chuyên nghiệp trong lĩnh vực
-                        kinh doanh dịch vụ làm thủ tục về kê khai báo cáo thuế và tư vấn thuế.
-                        Chúng tôi được thành lập trên cơ sở đáp ứng đầy đủ điều kiện hành nghề
-                        của một Đại lý thuế theo quy định của Pháp luật.
-                    </p>
-
                     <h1 style="text-align: justify;">
-                        Công ty TNHH tư vấn kế toán thuế&nbsp;QC
+                        @ViewBag.Config.SocialLink6
                     </h1>
 
                     <p style="text-align: justify;">
-                        Sở hữu đội ngũ nhân sự với nhiều năm kinh nghiệm trong lĩnh vực tư vấn
-                        và làm thủ tục về kê khai thuế, chúng tôi mong muốn đem năng lực nghiệp vụ,
-                        sự tận tâm và nhiệt huyết của mình đến với các doanh nghiệp, đồng hành
-                        cùng doanh nghiệp tháo gỡ khó khăn để cùng phát triển bền vững.
+                        @ViewBag.Config.Description
                     </p>
 
                 </div>
@@ -171,32 +159,35 @@
     <div class="section-name">TIN MỚI NHẤT</div>
 
     <div class="box-news owl-carousel owl-theme">
-        <div class="card card-news-item">
-            <div class="card-img-top">
-                <a href="/blog/ke-toan-thue-qc-chao-mung-ky-niem-80-nam-quoc-khanh.html">
-                    <img src="user/assets/images/banners/2023/12/04/133461575385476361.jpg" class="img-fluid">
-                </a>
-            </div>
-
-            <div class="card-body">
-                <div class="date-post">02/09/2023</div>
-
-                <h3 class="height-truncate" data-line="3">
-                    <a href="/blog/ke-toan-thue-qc-chao-mung-ky-niem-80-nam-quoc-khanh.html">
-                        Kế Toán Thuế QC – Chào mừng kỷ niệm 80 năm Quốc khánh
+        @foreach(News n in ViewBag.News)
+        {
+            <div class="card card-news-item">
+                <div class="card-img-top">
+                    <a href="/tin-tuc-chi-tiet/@n.Tag">
+                        <img src="@n.Image" class="img-fluid">
                     </a>
-                </h3>
+                </div>
 
-                <p class="height-truncate" data-line="5">
-                    Hòa chung không khí tự hào dân tộc, công ty TNHH Tư Vấn Kế Toán Thuế QC...
-                </p>
+                <div class="card-body">
+                    <div class="date-post">@n.Date</div>
 
-                <a href="/blog/ke-toan-thue-qc-chao-mung-ky-niem-80-nam-quoc-khanh.html"
-                   class="view-more-link">Xem thêm</a>
+                    <h3 class="height-truncate" data-line="3">
+                        <a href="/tin-tuc-chi-tiet/@n.Tag">
+                            @n.Name
+                        </a>
+                    </h3>
+
+                    <p class="height-truncate" data-line="5">
+                        @n.Content
+                    </p>
+
+                    <a href="/tin-tuc-chi-tiet/@n.Tag"
+                       class="view-more-link">Xem thêm</a>
+                </div>
             </div>
-        </div>
+        }
+        
 
-        <!-- copy thêm item -->
     </div>
 </section>
 
