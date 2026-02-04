@@ -143,7 +143,7 @@ namespace MyShop.Areas.Admin.Controllers
             }
             if (ModelState.IsValid)
             {
-
+                news.Date = DateTime.Now;
                 var file = HttpContext.Request.Form.Files.FirstOrDefault();
                 if (photo != null && photo.Length != 0)
                 {
