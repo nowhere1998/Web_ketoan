@@ -43,8 +43,8 @@
 
             <!-- Cột ảnh -->
             <div class="col-lg-6 col-sm-6 order-1 order-lg-0 mt-3 mt-sm-0">
-                <img src="/images/articles/2022/07/12/13302893119602258.jpg?w=540"
-                     width="540"
+                <img src="@ViewBag.Banner.Image"
+                     style="width:@(ViewBag.Banner.Width+"px"); height:@(ViewBag.Banner.Height+"px")"
                      class="img-fluid about-img"
                      alt="Kế toán QC">
             </div>
@@ -120,7 +120,7 @@
 @* end dịch vụ *@
 
 <div class="counter-box lazyloaded"
-     data-bg="/user/assets/content/images/bh5.jpg"
+     data-bg="@ViewBag.BgThongke.Image"
      style="background-image: url('@ViewBag.BgThongke.Image');">
 
     <div class="container">

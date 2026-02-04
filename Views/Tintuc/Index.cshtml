@@ -1,105 +1,105 @@
-﻿@{
+﻿@model IEnumerable<MyShop.Models.News>
+@{
     ViewData["Title"] = "Tin tức";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var path = Context.Request.Path;
+    // var path = Context.Request.Path.Value?.ToLower();
 }
 
 <div class="sub-header">
     <div class="container">
-        @if(path == "tin-tuc")
-        {
-            
-        }else if(path == "thu-vien/hinh-anh")
-        {
-            
-        }else if(path == "thu-vien/videos")
-        {
-            
-        }
+
         <h1>Tin tức</h1>
         <ul class="breadcrumb">
             <li class="breadcrumb-item">
                 <a href="/"><i class="fal fa-home"></i></a>
             </li>
-            @if (path == "tin-tuc")
-            {
-                <li class="breadcrumb-item active">Tin tức</li>
-            }
-            else if (path == "thu-vien/hinh-anh")
-            {
-                <li class="breadcrumb-item active">Thư viện/Hình ảnh</li>
-            }
-            else if (path == "thu-vien/videos")
-            {
-                <li class="breadcrumb-item active">Thư viện/Videos</li>
-            }
-            
+            <li class="breadcrumb-item active">Tin tức</li>
+
         </ul>
     </div>
 </div>
 <div class="container wrapper-content">
     <div class="row">
         @* list tin tức *@
-
-        <div class="col-lg-4">
-            <div class="card card-news">
-                <div class="card-img-top">
-                    <a href="/blog/ky-niem-10-nam-thanh-lap-ke-toan-thue-qc-sinh-nhat-10-tuoi.html"
-                       class="img-zoom-in">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAMzMzAAAACH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS4zLWMwMTEgNjYuMTQ1NjYxLCAyMDEyLzAyLzA2LTE0OjU2OjI3ICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M2IChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo4NjdCQkRBNkYyOUUxMUVDOTQzQ0ExMTUyNkQ5MDVGNyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo4NjdCQkRBN0YyOUUxMUVDOTQzQ0ExMTUyNkQ5MDVGNyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjg2N0JCREE0RjI5RTExRUM5NDNDQTExNTI2RDkwNUY3IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjg2N0JCREE1RjI5RTExRUM5NDNDQTExNTI2RDkwNUY3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Af/+/fz7+vn49/b19PPy8fDv7u3s6+rp6Ofm5eTj4uHg397d3Nva2djX1tXU09LR0M/OzczLysnIx8bFxMPCwcC/vr28u7q5uLe2tbSzsrGwr66trKuqqainpqWko6KhoJ+enZybmpmYl5aVlJOSkZCPjo2Mi4qJiIeGhYSDgoGAf359fHt6eXh3dnV0c3JxcG9ubWxramloZ2ZlZGNiYWBfXl1cW1pZWFdWVVRTUlFQT05NTEtKSUhHRkVEQ0JBQD8+PTw7Ojk4NzY1NDMyMTAvLi0sKyopKCcmJSQjIiEgHx4dHBsaGRgXFhUUExIREA8ODQwLCgkIBwYFBAMCAQAALAAAAAABAAEAAAICRAEAOw=="
-                             data-src="/images/articles/2025/09/12/134021243176785815.jpg"
-                             class="img-fluid lazyload"
-                             width="348"
-                             alt="Kỷ Niệm 10 Năm Thành Lập Kế Toán Thuế QC - Sinh Nhật 10 Tuổi" />
-                    </a>
-                    <div class="post-date">
-                        12<br />
-                        Sep
+        @if (Model.Any())
+        {
+            @foreach(News n in Model)
+            {
+                <div class="col-lg-4">
+                    <div class="card card-news">
+                        <div class="card-img-top">
+                            <a href="/tin-tuc-chi-tiet/@n.Tag"
+                               class="img-zoom-in">
+                                <img src="@n.Image"
+                                     data-src="@n.Image"
+                                     class="img-fluid lazyload" 
+                                     alt="@n.Name" />
+                            </a>
+                            <div class="post-date">
+                                12<br />
+                                Sep
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h2 class="height-truncate" data-line="2">
+                                <a href="/tin-tuc-chi-tiet/@n.Tag">
+                                    @n.Name
+                                </a>
+                            </h2>
+                            <div class="sapo height-truncate" data-line="3">
+                                @n.Content
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="card-body">
-                    <h2 class="height-truncate" data-line="2">
-                        <a href="/blog/ky-niem-10-nam-thanh-lap-ke-toan-thue-qc-sinh-nhat-10-tuoi.html">
-                            Kỷ Niệm 10 Năm Th&#224;nh Lập Kế To&#225;n Thuế QC - Sinh
-                            Nhật 10 Tuổi
-                        </a>
-                    </h2>
-                    <div class="sapo height-truncate" data-line="3">
-                        Ng&#224;y 08/09/2025 vừa qua, C&#244;ng ty TNHH Tư vấn Kế
-                        To&#225;n Thuế QC đ&#227; long trọng tổ chức lễ kỷ niệm 10 năm
-                        th&#224;nh lập (2015 – 2025). Buổi tiệc diễn ra trong kh&#244;ng
-                        kh&#237; trang trọng, ấm &#225;p nhưng cũng đầy tự h&#224;o
-                        v&#224; kh&#237; thế. Đ&#226;y kh&#244;ng chỉ l&#224; dịp để
-                        nh&#236;n lại chặng đường đ&#227; qua m&#224; c&#242;n l&#224;
-                        dấu mốc quan trọng mở ra h&#224;nh tr&#236;nh mới đầy hứa hẹn
-                        của Kế To&#225;n Thuế QC.
-                    </div>
-                </div>
-            </div>
-        </div>
+            }
+        }
+        else
+        {
+            <p>Đang cập nhật ...</p>
+        }
+        
         @* list tin tức *@
     </div>
-    <div class="text-center">
-        <div class="pagination-container">
-            <ul class="pagination">
-                <li class="active"><a>1</a></li>
-                <li><a href="/blog/tin-tuc?page=2">2</a></li>
-                <li><a href="/blog/tin-tuc?page=3">3</a></li>
-                <li><a href="/blog/tin-tuc?page=4">4</a></li>
-                <li><a href="/blog/tin-tuc?page=5">5</a></li>
-                <li><a href="/blog/tin-tuc?page=6">6</a></li>
-                <li><a href="/blog/tin-tuc?page=7">7</a></li>
-                <li><a href="/blog/tin-tuc?page=8">8</a></li>
-                <li><a href="/blog/tin-tuc?page=9">9</a></li>
-                <li><a href="/blog/tin-tuc?page=10">10</a></li>
-                <li class="disabled PagedList-ellipses"><a>&#8230;</a></li>
-                <li class="PagedList-skipToNext">
-                    <a href="/blog/tin-tuc?page=2" rel="next">»</a>
-                </li>
-                <li class="PagedList-skipToLast">
-                    <a href="/blog/tin-tuc?page=12">»»</a>
-                </li>
+    @if (ViewBag.TotalPages > 1)
+    {
+        <div class="text-center">
+            <ul class="pagination justify-content-center">
+
+                @* Prev *@
+                @if (ViewBag.Page > 1)
+                {
+                    <li class="page-item">
+                        <a class="page-link" href="/tin-tuc?page=@(ViewBag.Page - 1)">«</a>
+                    </li>
+                }
+
+                @for (int i = 1; i <= ViewBag.TotalPages; i++)
+                {
+                    if (i == ViewBag.Page)
+                    {
+                        <li class="page-item active">
+                            <span class="page-link">@i</span>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="page-item">
+                            <a class="page-link" href="/tin-tuc?page=@i">@i</a>
+                        </li>
+                    }
+                }
+
+                @* Next *@
+                @if (ViewBag.Page < ViewBag.TotalPages)
+                {
+                    <li class="page-item">
+                        <a class="page-link" href="/tin-tuc?page=@(ViewBag.Page + 1)">»</a>
+                    </li>
+                }
+
             </ul>
         </div>
-    </div>
+    }
+
 </div>

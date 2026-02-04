@@ -36,6 +36,10 @@ namespace MyShop.Controllers
                 .Where(x => x.Position == 2)
                 .OrderBy(x => x.Ord)
                 .ToList();
+            var banner = _context.Advertises
+                .Where(x => x.Position == 1)
+                .OrderBy(x => x.Ord)
+                .FirstOrDefault() ?? new Advertise();
             //var news = _context.News
             //    .OrderByDescending(x => x.Id)
             //    .Where(x => x.Status == 1)
@@ -57,6 +61,7 @@ namespace MyShop.Controllers
             ViewBag.Config = config;
             ViewBag.Slides = slides;
             ViewBag.BgThongke = bgThongke;
+            ViewBag.Banner = banner;
             //ViewBag.News = news;
             //ViewBag.Categories = categories;
             //ViewBag.Products = products;
