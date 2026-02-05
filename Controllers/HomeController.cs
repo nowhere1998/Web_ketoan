@@ -47,7 +47,7 @@ namespace MyShop.Controllers
             var menuGiua = _context.Pages
                 .Where(x => 
                     x.Active == 1
-                    && (x.Position == 2 || x.Position == 4 || x.Position == 5)
+                    && (x.Position == 2 || x.Position == 4 || x.Position == 5 || x.Position == 7)
                     && x.Level.Length == 10
                  )
                 .OrderBy(x => x.Ord)   
