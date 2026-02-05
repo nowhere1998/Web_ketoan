@@ -58,11 +58,17 @@
             </div>
         </div>
         <div class="row">
-            <div class="col">
-                <label for="" class="form-label">Bản đồ</label>
-                <textarea asp-for="Copyright"></textarea>
+            <div class="col-12">
+                <label class="form-label">Bản đồ</label>
+                <textarea asp-for="Copyright"
+                          class="form-control"
+                          rows="12"
+                          
+                          placeholder="Dán iframe Google Maps vào đây...">
+        </textarea>
             </div>
         </div>
+
         <div class="row">
             <div class="col">
                 <label for="" class="form-label">Hotline</label>
@@ -178,7 +184,7 @@
             }
         });
         CKEDITOR.replace('Contact');
-        CKEDITOR.replace('Copyright');
+        // CKEDITOR.replace('Copyright');
     </script>
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
