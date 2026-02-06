@@ -20,7 +20,7 @@ namespace MyShop.Controllers.Components
                     l1.Level != null &&
                     l1.Level.Length == 5 &&
                     l1.Active == 1 &&
-                    (l1.Position == 3 || l1.Position == 4 || l1.Position == 6))
+                    (l1.Position == 3 || l1.Position == 4 || l1.Position == 6 || l1.Position == 6))
                 .OrderBy(l1 => l1.Ord)
                 .Select(l1 => new PageL1
                 {
@@ -32,7 +32,7 @@ namespace MyShop.Controllers.Components
                         l2.Level.Length == 10 &&
                         l2.Level.StartsWith(l1.Level) &&
                         l2.Active == 1 &&
-                        (l2.Position == 3 || l2.Position == 4 || l2.Position == 6)
+                        (l2.Position == 3 || l2.Position == 4 || l2.Position == 6 || l2.Position == 6)
                     ),
                 })
                 .ToList();
@@ -42,7 +42,7 @@ namespace MyShop.Controllers.Components
                 .Where(x => x.Level != null
                     && x.Level.Length == 10
                     && x.Active == 1
-                    && (x.Position == 3 || x.Position == 4 || x.Position == 6))
+                    && (x.Position == 3 || x.Position == 4 || x.Position == 6 || x.Position == 6))
                 .ToList();
 
             ViewBag.PagesL1 = pagesL1;
